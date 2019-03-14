@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.hardeep.myproject">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo1"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo1"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".Main">
+        </activity>
+        <activity android:name=".newaccount" />
+        <activity
+            android:name=".user.The_user_profile"
+            android:label="@string/title_activity_the_user_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".admin.Admin" />
+        <activity android:name=".user.editprofile" />
+        <activity android:name=".user.myorders" />
+        <activity android:name=".user.editpassword" />
+        <activity android:name=".admin.Add_order.add_order" />
+        <activity android:name=".admin.display_user_details" />
+        <activity android:name=".admin.Add_order.Order_list" />
+        <activity android:name=".user.Order_click_details" />
+
+        <service android:name=".FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".FirebaseInstanceId">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".admin.fragments.Send_notification_to_user" />
+        <activity android:name=".admin.Show_order_details" />
+        <activity android:name=".Launcher">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+    </application>
+
+</manifest>

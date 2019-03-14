@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="com.example.hardeep.myproject.Main">
+
+    <EditText
+        android:id="@+id/mail"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/edittextview"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="10dp"
+        android:singleLine="true"
+        android:paddingLeft="15dp"
+        />
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="50dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittextview"
+        android:paddingLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="24dp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/uname"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textColor="@android:color/black"
+        android:textSize="24dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/password1"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Log In"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:fontFamily="casual"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        android:background="@drawable/buttonview"
+        android:id="@+id/login" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create a new account"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="330dp"
+        android:id="@+id/newacc"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16dp"
+        android:clickable="true"
+        android:onClick="Clickme"/>
+
+</RelativeLayout>

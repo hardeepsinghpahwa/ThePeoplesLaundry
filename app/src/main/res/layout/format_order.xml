@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_margin="5dp"
+    android:divider="@android:color/transparent"
+    android:dividerHeight="0.0px"
+    app:cardCornerRadius="4dp"
+    card_view:cardBackgroundColor="#000000"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="16dp"
+    card_view:cardMaxElevation="10dp">
+    
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card1"
+    >
+
+    <TextView
+        android:id="@+id/name_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="145dp"
+        android:gravity="center_horizontal"
+        android:text="Name"
+        android:textColor="#000000"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="145dp"
+        android:text="Name : "
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/orderid_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="orderid"
+        android:layout_marginTop="100dp"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="175dp"
+        android:gravity="center_vertical"
+        android:text="Username : "
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/username_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="175dp"
+        android:text="username"
+        android:textColor="#000000"
+        android:textSize="15dp" />
+    
+
+</RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
