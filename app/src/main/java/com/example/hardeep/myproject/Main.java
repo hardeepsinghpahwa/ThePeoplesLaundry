@@ -40,8 +40,6 @@ public class Main extends AppCompatActivity {
         button = findViewById(R.id.login);
         newacc = findViewById(R.id.newacc);
 
-        email.setText("hardeep123.in@gmail.com");
-        password.setText("iamadmin");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
