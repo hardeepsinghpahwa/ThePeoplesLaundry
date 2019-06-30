@@ -1,5 +1,6 @@
 package com.example.hardeep.myproject.user;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -14,12 +15,13 @@ import android.widget.TextView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
-import com.example.hardeep.myproject.FirebaseInstanceId;
+import com.example.hardeep.myproject.CompletedOrders;
 import com.example.hardeep.myproject.R;
-import com.example.hardeep.myproject.admin.fragments.admin_all_orders;
+import com.example.hardeep.myproject.RejectedOrders;
 import com.example.hardeep.myproject.get_details;
 import com.example.hardeep.myproject.user.fragments.Active_orders;
 import com.example.hardeep.myproject.user.fragments.Contact_us;
+import com.example.hardeep.myproject.user.fragments.OrderRequest;
 import com.example.hardeep.myproject.user.fragments.Previous_orders;
 import com.example.hardeep.myproject.user.fragments.Settings;
 import com.example.hardeep.myproject.user.fragments.Share_the_app;
@@ -35,7 +37,7 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class The_user_profile extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener  {
+        implements NavigationView.OnNavigationItemSelectedListener, CompletedOrders.OnFragmentInteractionListener, RejectedOrders.OnFragmentInteractionListener {
 
     private TextView name,email;
     CircleImageView image;
@@ -106,7 +108,7 @@ public class The_user_profile extends AppCompatActivity
             uri=d.getImage();
             name.setText(d.getName());
             email.setText(d.getEmail());
-            Picasso.with(The_user_profile.this).load(uri).fit().centerCrop().into(image);
+            Picasso.get().load(uri).fit().centerCrop().into(image);
         }
     }
 
@@ -170,6 +172,10 @@ public class The_user_profile extends AppCompatActivity
         else if(id==R.id.contactus){
             fragment=new Contact_us();
         }
+        else if(id==R.id.requestorder)
+        {
+            fragment=new OrderRequest();
+        }
 
         FragmentTransaction f= getSupportFragmentManager().beginTransaction();
         f.replace(R.id.content,fragment);
@@ -178,5 +184,10 @@ public class The_user_profile extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

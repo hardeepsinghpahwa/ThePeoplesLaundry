@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "773049290889-oresfn0u90c1u0la664b0lad6pirg72c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hardeep.myproject",
+            "certificate_hash": "f7e685fa61edd8294e5a8d40b325bff817485cc3"
+          }
+        },
+        {
           "client_id": "773049290889-9f0hn7t0b9cd363kavvimnnfdc9cukoj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -33,20 +41,50 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "773049290889-8mjqqqojgdqgdnvhilqfq0ciph8qbuv8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773049290889:android:4dc44d8b75332345",
+        "android_client_info": {
+          "package_name": "com.example.thepeopleslandryadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "773049290889-qkrhfqtivm38fpus1sh1hgh69uaea2k5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.thepeopleslandryadmin",
+            "certificate_hash": "f7e685fa61edd8294e5a8d40b325bff817485cc3"
+          }
         },
-        "ads_service": {
-          "status": 2
+        {
+          "client_id": "773049290889-8mjqqqojgdqgdnvhilqfq0ciph8qbuv8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9LlvsH8mrqMXffCDtu7dJRy7O5xGvaaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "773049290889-8mjqqqojgdqgdnvhilqfq0ciph8qbuv8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

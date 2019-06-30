@@ -1,127 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layout"
     android:background="@drawable/background"
     tools:context="com.example.hardeep.myproject.newaccount">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter full name"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/textView2"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Set Username"
-        android:layout_marginTop="215dp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:layout_marginLeft="20dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Set Email"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="290dp"
-        android:textSize="18dp"
-        android:layout_marginLeft="20dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="360dp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:text="Set Password"
-        android:textSize="18dp"
-        android:layout_marginLeft="20dp"
-
-        />
-
-    <EditText
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:paddingLeft="15dp"
-        android:layout_height="40dp"
-        android:textColor="@android:color/black"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/edittextview"
-        android:layout_marginTop="170dp"
-        android:id="@+id/name"
-        android:inputType="textPersonName"
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:textColor="@android:color/black"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/edittextview"
-        android:layout_marginTop="245dp"
-        android:id="@+id/username"
-        android:paddingLeft="15dp"
-        android:singleLine="true"
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="320dp"
-        android:id="@+id/email"
-        android:textColor="@android:color/black"
-        android:paddingLeft="15dp"
-        android:background="@drawable/edittextview"
-        android:maxLines="1"
-        android:singleLine="true"
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="390dp"
-        android:textColor="@android:color/black"
-        android:paddingLeft="15dp"
-        android:id="@+id/password"
-        android:background="@drawable/edittextview"
-        android:inputType="textPassword"
-        android:singleLine="true"
-        />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Create Account"
-        android:textSize="18dp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:fontFamily="casual"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"
-        android:background="@drawable/buttonview"
-        android:id="@+id/createacc"
-        />
+        android:layout_height="match_parent"
+        android:id="@+id/layout">
 
     <ImageButton
         android:id="@+id/image"
@@ -136,7 +25,6 @@
         android:onClick="Choose_image"
         android:scaleType="centerCrop"
         />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -145,6 +33,142 @@
         android:textColor="@color/colorPrimary"
         android:text="Select profile picture"
         android:id="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter full name"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/textView"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/textView2"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="40dp"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edittextview"
+        android:layout_below="@+id/textView2"
+        android:id="@+id/name"
+        android:inputType="textPersonName"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Username"
+        android:layout_below="@+id/name"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:id="@+id/usernametext"
+        android:layout_marginLeft="20dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/edittextview"
+        android:layout_below="@+id/usernametext"
+        android:id="@+id/username"
+        android:singleLine="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Email"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:id="@+id/emailtext"
+        android:layout_below="@+id/username"
+        android:textSize="18dp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/email"
+        android:layout_below="@+id/emailtext"
+        android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/edittextview"
+        android:maxLines="1"
+        android:singleLine="true"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:text="Set Password"
+        android:textSize="18dp"
+        android:id="@+id/passwordtext"
+        android:layout_marginLeft="20dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@android:color/black"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/reenterpassword"
+        android:layout_below="@+id/reenterpasswordtext"
+        android:background="@drawable/edittextview"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:text="Re-enter Password"
+        android:textSize="18dp"
+        android:id="@+id/reenterpasswordtext"
+        android:layout_marginLeft="20dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@android:color/black"
+        android:id="@+id/password"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_below="@+id/passwordtext"
+        android:background="@drawable/edittextview"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        />
 
     <ProgressBar
         android:layout_width="match_parent"
@@ -158,4 +182,21 @@
         android:id="@+id/progressbar1"
         />
 
-</RelativeLayout>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:textSize="18dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+        android:layout_below="@+id/reenterpassword"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonview"
+        android:id="@+id/createacc"
+        android:layout_marginBottom="20sp"
+        />
+
+    </RelativeLayout>
+</ScrollView>

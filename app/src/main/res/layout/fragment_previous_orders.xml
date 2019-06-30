@@ -1,13 +1,25 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.hardeep.myproject.user.fragments.Previous_orders">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v4.view.ViewPager
+        android:id="@+id/previousordersviewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Previous Orders" />
+        />
 
-</FrameLayout>
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:tabMode="fixed"
+        android:id="@+id/tablayout"
+        android:background="#00bcd4"
+        android:theme="@style/AppTheme.PopupOverlay1"
+        android:elevation="20dp">
+
+    </android.support.design.widget.TabLayout>
+
+</RelativeLayout>

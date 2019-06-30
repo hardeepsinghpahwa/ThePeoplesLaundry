@@ -6,7 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.hardeep.myproject.user.The_user_profile;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Launcher extends AppCompatActivity {
+
+
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +22,12 @@ public class Launcher extends AppCompatActivity {
         Button b;
 
         b=findViewById(R.id.button11);
+        auth=FirebaseAuth.getInstance();
+
+        if(auth.getCurrentUser()!=null)
+        {
+            startActivity(new Intent(Launcher.this, The_user_profile.class));
+        }
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override

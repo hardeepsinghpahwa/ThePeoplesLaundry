@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.example.hardeep.myproject.user.myorders">
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:id="@+id/progressbarmyorders"
+        />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/user_order_recycler_view"
         android:layout_width="match_parent"

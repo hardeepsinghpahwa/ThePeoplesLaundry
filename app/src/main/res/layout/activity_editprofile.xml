@@ -61,6 +61,7 @@
         android:layout_marginLeft="20dp"
         android:textColor="@android:color/black"
         android:layout_marginRight="20dp"
+        android:paddingLeft="10dp"
         android:layout_marginTop="250dp"
         android:id="@+id/username1"
         />
@@ -98,7 +99,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#e0e0e0"
         android:src="@mipmap/camerapic"
         android:clickable="true"
         android:scaleType="fitCenter"

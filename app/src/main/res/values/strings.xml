@@ -9,5 +9,6 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Open</string>
+    <string name="default_notification_channel_id">Ch-01</string>
     <string name="close">Close</string>
 </resources>

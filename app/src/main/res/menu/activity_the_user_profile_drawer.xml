@@ -13,6 +13,11 @@
     <item android:title="Your Orders">
         <menu>
     <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/requestorder"
+            android:icon="@drawable/active_o"
+            android:title="Request an order" />
         <item
             android:id="@+id/activeorder"
             android:icon="@drawable/active_o"

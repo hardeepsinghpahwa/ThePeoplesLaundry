@@ -16,16 +16,21 @@ import android.widget.Toast;
 
 import com.example.hardeep.myproject.Main;
 import com.example.hardeep.myproject.R;
-import com.example.hardeep.myproject.admin.Admin;
 import com.example.hardeep.myproject.get_details;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -40,6 +45,7 @@ public class user_profile_edit extends Fragment {
     TextView user_name, user_email;
     String user_id;
     RecyclerView recyclerView;
+    FirebaseFirestore firebaseFirestore;
     Button signout;
     user_profile_edit user_profile_edit;
 
@@ -52,7 +58,7 @@ public class user_profile_edit extends Fragment {
         super.onCreate(savedInstanceState);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("1");
         firebaseAuth = FirebaseAuth.getInstance();
-
+        firebaseFirestore=FirebaseFirestore.getInstance();
     }
 
     @Override
@@ -80,12 +86,26 @@ public class user_profile_edit extends Fragment {
                 final Timer t = new Timer();
                 t.schedule(new TimerTask() {
                     public void run() {
-                        progressDialog.dismiss();
-                        FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(getActivity(), Main.class));
                         Looper.prepare();
-                        Toast.makeText(getContext(),"Successfully Signed Out",Toast.LENGTH_SHORT).show();
-                    }
+
+                        String a="";
+
+                        Map<String,Object> tokenremove=new HashMap<>();
+                        tokenremove.put("token",a);
+
+                        firebaseFirestore.collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).update(tokenremove).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                progressDialog.dismiss();
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(getActivity(), Main.class));
+
+                                Toast.makeText(getContext(),"Successfully Signed Out",Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        });
+                            }
                 }, 2000);
 
             }
@@ -115,7 +135,7 @@ public class user_profile_edit extends Fragment {
             user_name.setText(d.getName());
             user_email.setText(d.getEmail());
             String uri = d.getImage();
-            Picasso.with(getActivity()).load(uri).fit().centerCrop().into(circleImageView);
+            Picasso.get().load(uri).fit().centerCrop().into(circleImageView);
         }
 
 

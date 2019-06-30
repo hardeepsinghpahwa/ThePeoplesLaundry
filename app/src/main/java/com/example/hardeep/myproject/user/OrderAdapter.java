@@ -2,10 +2,12 @@ package com.example.hardeep.myproject.user;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.hardeep.myproject.R;
@@ -20,12 +22,22 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
     ArrayList<String> orderid;
     ArrayList<String> costs;
+    ArrayList<String> statuses;
     Context context;
+    ProgressBar progressBar;
 
-    public OrderAdapter(ArrayList<String> orderid,ArrayList<String >costs,Context context) {
+    @Override
+    public void onViewAttachedToWindow(@NonNull ViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        progressBar.setVisibility(View.GONE);
+    }
+
+    public OrderAdapter(ArrayList<String> orderid, ArrayList<String >costs, ArrayList<String> statuses, Context context,ProgressBar progressBar) {
         this.orderid=orderid;
         this.costs=costs;
+        this.statuses=statuses;
         this.context=context;
+        this.progressBar=progressBar;
     }
 
     @Override
@@ -39,8 +51,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
         holder.orderno.setText(orderid.get(position));
         holder.cost.setText(costs.get(position));
-
-
+        holder.status.setText(statuses.get(position));
     }
 
     @Override
@@ -54,7 +65,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView orderno,cost;
+        TextView orderno,cost,status;
 
 
         public ViewHolder(View itemView) {
@@ -62,20 +73,19 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             super(itemView);
             orderno=itemView.findViewById(R.id.display_order_number);
             cost=itemView.findViewById(R.id.cost_id);
+            status=itemView.findViewById(R.id.status);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i=new Intent(context, Order_click_details.class);
-                    i.putExtra("ordernumber",orderno.getText());
+                    final StringBuilder s=new StringBuilder(orderno.getText());
+                    s.deleteCharAt(0);
+                    final String order=s.toString();
+                    Intent i=new Intent(context,Order_click_details.class);
+                    i.putExtra("ordernumber",order);
                     context.startActivity(i);
                 }
             });
-
-
-
-
-
         }
     }
 }

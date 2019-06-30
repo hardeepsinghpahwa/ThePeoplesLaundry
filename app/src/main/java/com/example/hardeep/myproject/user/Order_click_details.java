@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import com.example.hardeep.myproject.AdapterClass;
 import com.example.hardeep.myproject.R;
-import com.example.hardeep.myproject.admin.Add_order.order_items;
-import com.example.hardeep.myproject.admin.Add_order.store_order_details;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,11 +20,13 @@ import java.util.List;
 
 public class Order_click_details extends AppCompatActivity {
 
-    TextView total_amoun;
+    TextView total_amoun,status;
     List<order_items> itemsList;
     DatabaseReference databaseReference;
     AdapterClass adapterClass;
     RecyclerView recyclerView;
+    TextView delievryaddress,dateandtime;
+
 
     String shirtno;
     String jeanno;
@@ -58,6 +58,7 @@ public class Order_click_details extends AppCompatActivity {
     String other2name;
     String other3name;
     String total_amount;
+    String orderstatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,13 +67,13 @@ public class Order_click_details extends AppCompatActivity {
 
         Intent i=getIntent();
         String ordernum=i.getStringExtra("ordernumber");
+        dateandtime=findViewById(R.id.dateandtime);
+        delievryaddress=findViewById(R.id.delievryaddress);
 
-        StringBuilder s=new StringBuilder(ordernum);
+        final StringBuilder s=new StringBuilder(ordernum);
         s.deleteCharAt(0);
-        final String order=s.toString();
 
-
-        databaseReference= FirebaseDatabase.getInstance().getReference().child("2").child("Active Orders").child(order);
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("2").child("Accepted Orders").child(ordernum);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -106,6 +107,7 @@ public class Order_click_details extends AppCompatActivity {
                     suitprice = dataSnapshot.child("suit_price").getValue(String.class);
                     sweaterprice = dataSnapshot.child("sweater_price").getValue(String.class);
                     ungarmprice = dataSnapshot.child("undergarments_price").getValue(String.class);
+                    orderstatus=dataSnapshot.child("status").getValue(String.class);
 
                 itemsList = new ArrayList<>();
                 itemsList.clear();
@@ -151,7 +153,11 @@ public class Order_click_details extends AppCompatActivity {
                 }
 
                 total_amoun=findViewById(R.id.to_amount);
+                status=findViewById(R.id.orderstatus);
                 total_amoun.setText(total_amount);
+                status.setText(orderstatus);
+                dateandtime.setText(dataSnapshot.child("dateandtime").getValue(String.class));
+                delievryaddress.setText(dataSnapshot.child("address").getValue(String.class));
                 recyclerView=findViewById(R.id.item_click_rec_view);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 adapterClass = new AdapterClass(getApplicationContext(), itemsList);

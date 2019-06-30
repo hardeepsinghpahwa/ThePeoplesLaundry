@@ -4,13 +4,16 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.CountDownTimer;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -23,15 +26,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -80,25 +86,24 @@ public class newaccount extends AppCompatActivity {
                 Exception error = result.getError();
             }
         }
-
-
     }
 
-
     public Uri image;
+    String emailfromdb, usernamefromdb;
     TextView t;
+    int c = 0, o = 0;
     private static final int GALLERY_REQUEST = 1;
     private RelativeLayout layout;
-    private Button button;
+    private Button button, verifyemail;
     private StorageReference storageref;
     private String user_id;
     private ImageButton profile_image;
     private Uri uri, resultUri;
-    private EditText Name, password, username, email;
+    int p = 0;
+    private EditText Name, password, username, email, reenterpassword;
     private DatabaseReference databaseReference;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
-    private FirebaseFirestore firebaseFirestore;
 
 
     @Override
@@ -113,7 +118,9 @@ public class newaccount extends AppCompatActivity {
         profile_image = findViewById(R.id.image);
         button = findViewById(R.id.createacc);
         layout = findViewById(R.id.layout);
-        progressBar=findViewById(R.id.progressbar1);
+        verifyemail = findViewById(R.id.verifybutton);
+        progressBar = findViewById(R.id.progressbar1);
+        reenterpassword = findViewById(R.id.reenterpassword);
 
         storageref = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -129,6 +136,7 @@ public class newaccount extends AppCompatActivity {
 
             }
         });
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,68 +149,140 @@ public class newaccount extends AppCompatActivity {
                 } else if (!Validate_password(password.getText().toString())) {
                     password.setError("Password must be greater than 6 characters");
                     password.requestFocus();
+                } else if (!password.getText().toString().equals(reenterpassword.getText().toString())) {
+                    reenterpassword.setError("Password does not match");
+                    reenterpassword.requestFocus();
+
                 } else {
 
-                    if (resultUri != null) {
-                        user_id = auth.getCurrentUser().getUid();
-                        final ProgressDialog pd = ProgressDialog.show(newaccount.this, "Please Wait", "Uploading Details");
-                        storageref = storageref.child("Profile Pictures/" + user_id);
-                        storageref.putFile(resultUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                image = taskSnapshot.getDownloadUrl();
-                                pd.dismiss();
-                                progressBar.setVisibility(View.VISIBLE);
+                    p=0;
+                    final DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("1").child("User details");
 
-                                auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                        finish();
-                                        Toast.makeText(newaccount.this, "Registration Successful", Toast.LENGTH_SHORT).show();
 
-                                        databaseReference = FirebaseDatabase.getInstance().getReference().child("1").child("User details").child(user_id);
+                    databaseReference1.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                                        get_details details = new get_details(Name.getText().toString(), password.getText().toString(), username.getText().toString(), email.getText().toString(), image.toString());
-                                        databaseReference.setValue(details).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                progressBar.setVisibility(View.INVISIBLE);
+                            databaseReference1.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                        usernamefromdb = dataSnapshot1.child("username").getValue(String.class);
+                                        if (username.getText().toString().equals(usernamefromdb)) {
+                                            if (o == 0) {
+                                                username.setError("Already In Use");
+                                                username.requestFocus();
+                                                p = 1;
+                                                break;
                                             }
-                                        });
+                                        }
                                     }
-                                });
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+                            int a = 0;
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                emailfromdb = dataSnapshot1.child("email").getValue(String.class);
+                                if (email.getText().toString().equals(emailfromdb)) {
+                                    if (c == 0)
+                                        email.setError("Already registered");
+                                    email.requestFocus();
+                                    a = 1;
+                                    break;
+                                }
                             }
-                        });
+                            if (a == 0 && p == 0) {
+                                c = 1;
+                                o = 1;
+                                if (resultUri != null) {
+                                    button.setClickable(false);
+                                    user_id = auth.getCurrentUser().getUid();
+                                    final ProgressDialog pd = ProgressDialog.show(newaccount.this, "Please Wait", "Uploading Details");
+                                    storageref = storageref.child("Profile Pictures/" + user_id);
+                                    UploadTask uploadTask = storageref.putFile(resultUri);
+                                    Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                                        @Override
+                                        public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                                            if (!task.isSuccessful()) {
+                                                throw task.getException();
+                                            }
 
+                                            // Continue with the task to get the download URL
+                                            return storageref.getDownloadUrl();
+                                        }
+                                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Uri> task) {
+                                            if (task.isSuccessful()) {
+                                                Uri downloadUri = task.getResult();
+                                                image = downloadUri;
+                                                pd.dismiss();
+                                                progressBar.setVisibility(View.VISIBLE);
 
-                    } else {
-                        image = Uri.parse("http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png");
+                                                auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        progressBar.setVisibility(View.VISIBLE);
-                        auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.INVISIBLE);
-                                finish();
-                                Toast.makeText(newaccount.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                user_id = auth.getCurrentUser().getUid();
+                                                        databaseReference = FirebaseDatabase.getInstance().getReference().child("1").child("User details").child(user_id);
 
-                                databaseReference = FirebaseDatabase.getInstance().getReference().child("1").child("User details").child(user_id);
+                                                        get_details details = new get_details(Name.getText().toString(), password.getText().toString(), username.getText().toString(), email.getText().toString(), image.toString());
+                                                        databaseReference.setValue(details).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void aVoid) {
+                                                                button.setClickable(false);
+                                                                finish();
+                                                                progressBar.setVisibility(View.INVISIBLE);
+                                                                Toast.makeText(newaccount.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    });
+                                } else {
 
-                                get_details details = new get_details(Name.getText().toString(), password.getText().toString(), username.getText().toString(), email.getText().toString(), image.toString());
-                                databaseReference.setValue(details).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
+                                    image = Uri.parse("http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png");
+                                    button.setClickable(false);
+                                    progressBar.setVisibility(View.VISIBLE);
+                                    auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                                    }
-                                });
+                                            user_id = auth.getCurrentUser().getUid();
+
+                                            databaseReference = FirebaseDatabase.getInstance().getReference().child("1").child("User details").child(user_id);
+
+                                            get_details details = new get_details(Name.getText().toString(), password.getText().toString(), username.getText().toString(), email.getText().toString(), image.toString());
+                                            databaseReference.setValue(details).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    email.setFocusable(false);
+                                                    Toast.makeText(newaccount.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                                    button.setClickable(false);
+                                                    finish();
+                                                    progressBar.setVisibility(View.INVISIBLE);
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
                             }
-                        });
+                        }
 
-                    }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
                 }
             }
-
         });
     }
 
@@ -220,6 +300,4 @@ public class newaccount extends AppCompatActivity {
 
         return matcher.matches();
     }
-
-
 }

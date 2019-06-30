@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Looper;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,10 +16,12 @@ import android.widget.Toast;
 
 import com.example.hardeep.myproject.Main;
 import com.example.hardeep.myproject.R;
-import com.example.hardeep.myproject.admin.Admin;
 import com.example.hardeep.myproject.get_details;
 import com.example.hardeep.myproject.newaccount;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -70,7 +73,9 @@ public class editprofile extends AppCompatActivity {
 
     private EditText name, username;
     TextView email;
-    Uri u,resultu,rr;
+    Uri u;
+    Uri resultu;
+    Uri rr;
     private static final int GALLERY_REQUEST = 1;
     ImageButton image;
     DatabaseReference databaseReference,dataref;
@@ -114,37 +119,58 @@ public class editprofile extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             if (resultu != null) {
-                final ProgressDialog pd= ProgressDialog.show(editprofile.this, "Please Wait", "Updating Details");
-                storageref = storageref.child("Profile Pictures/" + UUID.randomUUID().toString());
-                storageref.putFile(resultu).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                final ProgressDialog pd = ProgressDialog.show(editprofile.this, "Please Wait", "Updating Details");
+                pd.show();
+                final String random = UUID.randomUUID().toString();
+                storageref = storageref.child("Profile Pictures/" + random+".jpg");
+                UploadTask uploadTask = storageref.putFile(resultu);
+                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        rr = taskSnapshot.getDownloadUrl();
-                        pd.dismiss();
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
 
-                        dataref.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
+                        // Continue with the task to get the download URL
+                        return storageref.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
+                            Uri downloadUri = task.getResult();
+                            rr = downloadUri;
 
-                                dataSnapshot.getRef().child("name").setValue(name.getText().toString());
-                                dataSnapshot.getRef().child("username").setValue(username.getText().toString());
-                                if(rr!=null)
-                                {
-                                    dataSnapshot.getRef().child("image").setValue(rr.toString());
-                                    Toast.makeText(editprofile.this,"Profile Updated",Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }
-                                else {
-                                    Toast.makeText(editprofile.this,"Error Updating profile picture",Toast.LENGTH_SHORT).show();
-                                }
+                           if(rr!=null)
+                           {
+                               dataref.addValueEventListener(new ValueEventListener() {
+                                   @Override
+                                   public void onDataChange(DataSnapshot dataSnapshot) {
 
-                            }
+                                       dataSnapshot.getRef().child("name").setValue(name.getText().toString());
+                                       dataSnapshot.getRef().child("username").setValue(username.getText().toString());
+                                       if(rr!=null)
+                                       {
+                                           dataSnapshot.getRef().child("image").setValue(rr.toString());
+                                           pd.dismiss();
+                                           Toast.makeText(editprofile.this,"Profile Updated",Toast.LENGTH_SHORT).show();
+                                       }
+                                   }
 
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
+                                   @Override
+                                   public void onCancelled(DatabaseError databaseError) {
 
-                            }
-                        });
+                                   }
+                               });
+                           }
+                           else {
+                               Toast.makeText(editprofile.this,"Error Updating profile picture",Toast.LENGTH_SHORT).show();
+                           }
+
+                        } else {
+                            // Handle failures
+                            // ...
+                        }
                     }
                 });
             }
@@ -167,8 +193,6 @@ public class editprofile extends AppCompatActivity {
 
                         dataSnapshot.getRef().child("name").setValue(name.getText().toString());
                         dataSnapshot.getRef().child("username").setValue(username.getText().toString());
-
-
                     }
 
                     @Override
@@ -184,7 +208,6 @@ public class editprofile extends AppCompatActivity {
     });
     }
 
-
     private void display(DataSnapshot dataSnapshot) {
 
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
@@ -197,7 +220,7 @@ public class editprofile extends AppCompatActivity {
                             name.setText(d.getName());
                             email.setText(d.getEmail());
                             username.setText(d.getUsername());
-                            Picasso.with(editprofile.this).load(uri).fit().centerCrop().into(image);
+                            Picasso.get().load(uri).fit().centerCrop().into(image);
                         }
                     }
         }

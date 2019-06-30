@@ -5,19 +5,28 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.hardeep.myproject.admin.Admin;
 import com.example.hardeep.myproject.user.The_user_profile;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GetTokenResult;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Matcher;
@@ -29,48 +38,35 @@ public class Main extends AppCompatActivity {
     EditText password,email;
     Button button;
     FirebaseAuth firebaseAuth;
+    FirebaseFirestore firebaseFirestore;
+    Map<String,Object> tok;
+    CollectionReference collectionReference;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         email = findViewById(R.id.mail);
         password = findViewById(R.id.pass);
         button = findViewById(R.id.login);
+        firebaseFirestore=FirebaseFirestore.getInstance();
+        collectionReference=firebaseFirestore.collection("Users");
         newacc = findViewById(R.id.newacc);
+        firebaseAuth=FirebaseAuth.getInstance();
 
+        email.setText("hardeepsinghpahwa.in@gmail.com");
+        password.setText("hello1234");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
-                if(email.getText().toString().equals("hardeep123.in@gmail.com") && password.getText().toString().equals("iamadmin"))
-                {
-
-                    final ProgressDialog progressDialog1 = new ProgressDialog(Main.this, R.style.MyAlertDialogStyle);
-                    progressDialog1.setMessage("Logging You In");
-                    progressDialog1.setTitle("Welcome ADMIN");
-                    progressDialog1.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                    progressDialog1.show();
-                    final Timer t = new Timer();
-                            t.schedule(new TimerTask() {
-                                public void run() {
-                                    progressDialog1.dismiss();
-                                    startActivity(new Intent(Main.this,Admin.class));
-                                    t.cancel();
-                                }
-                            }, 3000);
-
-
-
-                }
-                else {
-                    if (!Validate_email(email.getText().toString())) {
-                        email.setError("Email format Incorrect");
+                if (!Validate_email(email.getText().toString())) {
+                        email.setError("Email Incorrect");
                         email.requestFocus();
                     } else if (!Validate_password(password.getText().toString())) {
-                        password.setError("Password format Incorrect");
+                        password.setError("Password Incorrect");
                         email.requestFocus();
                     } else {
                         final ProgressDialog progressDialog = new ProgressDialog(Main.this, R.style.MyAlertDialogStyle);
@@ -83,18 +79,43 @@ public class Main extends AppCompatActivity {
                                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
-                                        progressDialog.dismiss();
 
                                         if (task.isSuccessful()) {
-                                            Toast.makeText(Main.this, "Login Successful", Toast.LENGTH_LONG).show();
-                                            startActivity(new Intent(getApplicationContext(), The_user_profile.class));
+
+                                            String token= FirebaseInstanceId.getInstance().getToken();
+
+                                                    tok=new HashMap<>();
+                                                    tok.put("token",token);
+                                                    Log.i("token",token);
+                                            Log.i("uid",FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+
+                                            firebaseFirestore.collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).set(tok).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    progressDialog.dismiss();
+                                                    if(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
+                                                        startActivity(new Intent(getApplicationContext(), The_user_profile.class));
+                                                    }else {
+                                                        startActivity(new Intent(getApplicationContext(),EmailVerification.class));
+                                                    }
+
+
+                                                    Toast.makeText(Main.this, "Login Successful", Toast.LENGTH_LONG).show();
+
+                                                }
+
+                                            });
+
+
+
                                         } else {
                                             Toast.makeText(Main.this, "Email And Password mismatch", Toast.LENGTH_LONG).show();
 
                                         }
                                     }
                                 });
-                    }
+
                 }   }});
 
     }
