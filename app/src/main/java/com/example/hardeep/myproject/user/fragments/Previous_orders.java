@@ -1,9 +1,7 @@
 package com.example.hardeep.myproject.user.fragments;
 
-import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -38,7 +36,7 @@ public class Previous_orders extends Fragment {
 
         tabLayout.addTab(tabLayout.newTab().setText("Completed"));
         tabLayout.addTab(tabLayout.newTab().setText("Rejected"));
-        tabLayout.setTabTextColors(ColorStateList.valueOf(Color.parseColor("#FFFFFF")));
+        tabLayout.setTabTextColors(ColorStateList.valueOf(Color.WHITE));
         tabLayout.setTabGravity(Gravity.NO_GRAVITY);
 
         final FragmentPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager(), tabLayout.getTabCount());

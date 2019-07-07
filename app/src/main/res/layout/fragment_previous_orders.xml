@@ -16,7 +16,7 @@
         android:layout_height="50dp"
         app:tabMode="fixed"
         android:id="@+id/tablayout"
-        android:background="#00bcd4"
+        android:background="@color/colorPrimaryDark"
         android:theme="@style/AppTheme.PopupOverlay1"
         android:elevation="20dp">
 

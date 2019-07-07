@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">The People\'s Laundry</string>
-    <string name="title_activity_the_user_profile">Welcome to The People\'s +Laundry</string>
+    <string name="title_activity_the_user_profile">Welcome to The People\'s Laundry</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,4 +11,10 @@
     <string name="open">Open</string>
     <string name="default_notification_channel_id">Ch-01</string>
     <string name="close">Close</string>
+    <string name="set_password">Set Password</string>
+    <string name="re_enter_password">Re-enter Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="set_username">Set Username</string>
+    <string name="enter_full_name">Enter full name</string>
+    <string name="select_profile_picture">Select profile picture</string>
 </resources>

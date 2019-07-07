@@ -3,24 +3,20 @@ package com.example.hardeep.myproject.user;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hardeep.myproject.Main;
 import com.example.hardeep.myproject.R;
 import com.example.hardeep.myproject.get_details;
-import com.example.hardeep.myproject.newaccount;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -38,8 +34,6 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class editprofile extends AppCompatActivity {
 
@@ -77,7 +71,7 @@ public class editprofile extends AppCompatActivity {
     Uri resultu;
     Uri rr;
     private static final int GALLERY_REQUEST = 1;
-    ImageButton image;
+    ImageView image;
     DatabaseReference databaseReference,dataref;
     FirebaseAuth firebaseAuth;
     String userid, uri;
@@ -220,7 +214,7 @@ public class editprofile extends AppCompatActivity {
                             name.setText(d.getName());
                             email.setText(d.getEmail());
                             username.setText(d.getUsername());
-                            Picasso.get().load(uri).fit().centerCrop().into(image);
+                            Picasso.get().load(uri).resize(100,100).centerCrop().into(image);
                         }
                     }
         }

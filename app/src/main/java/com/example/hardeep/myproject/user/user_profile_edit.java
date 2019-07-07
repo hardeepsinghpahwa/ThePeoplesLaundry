@@ -24,11 +24,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
-import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
@@ -75,7 +73,7 @@ public class user_profile_edit extends Fragment {
         recyclerView = v.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         String data[]={"Edit Profile","My Orders","Edit Password"};
-        int image[]={R.drawable.editprofile,R.drawable.order1,R.drawable.password};
+        int image[]={R.drawable.edit,R.drawable.order1,R.drawable.password};
         recyclerView.setAdapter(new MyAdapter(data,image,getContext()));
 
 

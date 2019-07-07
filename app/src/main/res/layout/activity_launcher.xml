@@ -3,44 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@android:color/white"
     android:layout_height="match_parent"
+    android:background="@drawable/backk"
     tools:context=".Launcher">
 
     <ImageView
+        android:id="@+id/log"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:src="@drawable/logo"
-        />
-
+        android:layout_marginTop="20dp"
+        android:src="@drawable/log" />
 
 
     <Button
+        android:id="@+id/button11"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Log In / Sign Up"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:background="@drawable/buttonview"
-        android:fontFamily="sans-serif"
+        android:layout_below="@+id/head"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="440dp"
-        android:id="@+id/button11"
-        />
+        android:background="@drawable/buttonview"
+        android:fontFamily="@font/berkshire_swash"
+        android:text="Log In / Sign Up"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome To The People's Laundry"
-        android:textColor="#03A9F4"
-        android:textStyle="bold"
-        android:textSize="37dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:fontFamily="cursive"
-        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/log"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="320dp"
-        />
+        android:layout_marginLeft="20dp"
+        android:fontFamily="cursive"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Welcome To The People's Laundry"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
+        android:id="@+id/head"
+        android:textStyle="bold" />
 
 </RelativeLayout>

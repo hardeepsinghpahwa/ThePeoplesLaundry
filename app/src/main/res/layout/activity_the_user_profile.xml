@@ -14,7 +14,6 @@
         android:id="@+id/userframe">
     </FrameLayout>
 
-
     <include
         layout="@layout/app_bar_the_user_profile"
         android:layout_width="match_parent"
@@ -25,12 +24,12 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#FFFFFF"
-        app:itemIconTint="#000000"
-        app:itemTextAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
+        app:itemIconTint="@color/selector"
+        app:itemTextColor="@color/selector"
         android:fitsSystemWindows="true"
+        android:background="#FFFFFF"
         app:headerLayout="@layout/nav_header_the_user_profile"
-        app:itemTextColor="#000000"
+        android:theme="@style/NavigationDrawerStyle"
         app:menu="@menu/activity_the_user_profile_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

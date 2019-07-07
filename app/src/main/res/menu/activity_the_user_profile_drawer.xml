@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/profileee"
+        android:icon="@drawable/personico"
         android:title="Profile" />
 
     </group>
@@ -16,20 +16,20 @@
 
         <item
             android:id="@+id/requestorder"
-            android:icon="@drawable/active_o"
+            android:icon="@drawable/add"
             android:title="Request an order" />
         <item
             android:id="@+id/activeorder"
-            android:icon="@drawable/active_o"
+            android:icon="@drawable/activeorder"
             android:title="Active orders" />
         <item
             android:id="@+id/previousorders"
             android:icon="@drawable/previous"
             android:title="Previous Orders" />
-        
+
         <item
             android:id="@+id/pricelist"
-            android:icon="@drawable/listicco"
+            android:icon="@drawable/pricelist"
             android:title="Price List" />
     </group>
         </menu>
@@ -43,12 +43,12 @@
                 android:title="Settings" />
             <item
                 android:id="@+id/share"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/share"
                 android:title="Share The App" />
 
             <item
                 android:id="@+id/contactus"
-                android:icon="@drawable/contacct"
+                android:icon="@drawable/contactus"
                 android:title="Contact us" />
         </menu>
     </item>
