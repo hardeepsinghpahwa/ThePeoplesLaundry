@@ -3,7 +3,10 @@ package com.example.hardeep.myproject;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,8 +57,6 @@ public class Main extends AppCompatActivity {
         newacc = findViewById(R.id.newacc);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        email.setText("hardeepsinghpahwa.in@gmail.com");
-        password.setText("hello1234");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,13 +68,13 @@ public class Main extends AppCompatActivity {
                     password.setError("Password Incorrect");
                     email.requestFocus();
                 } else {
+
                     final AlertDialog alertDialog = new SpotsDialog.Builder()
                             .setContext(Main.this)
                             .setMessage("Processing")
                             .setCancelable(false)
                             .setTheme(R.style.Custom)
                             .build();
-
                     final ProgressDialog progressDialog = new ProgressDialog(Main.this, R.style.MyAlertDialogStyle);
                     progressDialog.setMessage("Processing");
                     progressDialog.setTitle("Please wait");
@@ -102,8 +103,10 @@ public class Main extends AppCompatActivity {
                                                 alertDialog.dismiss();
                                                 //progressDialog.dismiss();
                                                 if (FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
+                                                    finish();
                                                     startActivity(new Intent(getApplicationContext(), The_user_profile.class));
                                                 } else {
+                                                    finish();
                                                     startActivity(new Intent(getApplicationContext(), EmailVerification.class));
                                                 }
 
@@ -149,6 +152,6 @@ public class Main extends AppCompatActivity {
         Matcher matcher = pattern.matcher(email.getText().toString());
 
         return matcher.matches();
-    }
 
+    }
 }

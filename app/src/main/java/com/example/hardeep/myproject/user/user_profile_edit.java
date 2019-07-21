@@ -1,5 +1,6 @@
 package com.example.hardeep.myproject.user;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import dmax.dialog.SpotsDialog;
 
 
 public class user_profile_edit extends Fragment {
@@ -57,6 +59,7 @@ public class user_profile_edit extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("1");
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore=FirebaseFirestore.getInstance();
+
     }
 
     @Override
@@ -80,7 +83,15 @@ public class user_profile_edit extends Fragment {
         signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final ProgressDialog progressDialog=ProgressDialog.show(getContext(),"Please Wait","Signing Out");
+                final AlertDialog alertDialog = new SpotsDialog.Builder()
+                        .setContext(getActivity())
+                        .setMessage("Signing out")
+                        .setCancelable(false)
+                        .setTheme(R.style.Custom)
+                        .build();
+
+                        alertDialog.show();
+
                 final Timer t = new Timer();
                 t.schedule(new TimerTask() {
                     public void run() {
@@ -94,7 +105,7 @@ public class user_profile_edit extends Fragment {
                         firebaseFirestore.collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).update(tokenremove).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                progressDialog.dismiss();
+                                alertDialog.dismiss();
                                 FirebaseAuth.getInstance().signOut();
                                 startActivity(new Intent(getActivity(), Main.class));
 

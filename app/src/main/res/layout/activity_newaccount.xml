@@ -34,7 +34,8 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/berkshire_swash"
             android:text="@string/select_profile_picture"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="#FFFFFF"
+            />
 
         <TextView
             android:id="@+id/textView2"
@@ -45,7 +46,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/berkshire_swash"
             android:text="@string/enter_full_name"
-            android:textColor="@android:color/black"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -60,7 +61,6 @@
             android:inputType="textPersonName"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:focusable="false"
             android:textColor="@android:color/black" />
 
 
@@ -73,7 +73,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/berkshire_swash"
             android:text="@string/set_username"
-            android:textColor="@android:color/black"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -87,7 +87,6 @@
             android:background="@drawable/edittextview"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:focusable="false"
             android:singleLine="true"
             android:textColor="@android:color/black" />
 
@@ -96,12 +95,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/username"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/berkshire_swash"
             android:text="Set Email"
-            android:textColor="@android:color/black"
-            android:textSize="18dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
@@ -112,10 +111,9 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/edittextview"
-            android:maxLines="1"
             android:paddingLeft="10dp"
-            android:focusable="false"
             android:paddingRight="10dp"
+            android:maxLines="1"
             android:singleLine="true"
             android:textColor="@android:color/black" />
 
@@ -129,7 +127,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/berkshire_swash"
             android:text="@string/set_password"
-            android:textColor="@android:color/black"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -145,7 +143,6 @@
             android:inputType="textPassword"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:focusable="false"
             android:singleLine="true"
             android:textColor="@android:color/black" />
 
@@ -158,7 +155,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/berkshire_swash"
             android:text="@string/re_enter_password"
-            android:textColor="@android:color/black"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -173,7 +170,6 @@
             android:inputType="textPassword"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:focusable="false"
             android:singleLine="true"
             android:textColor="@android:color/black" />
 

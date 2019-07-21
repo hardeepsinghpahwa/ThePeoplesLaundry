@@ -52,7 +52,7 @@ public class editprofile extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
             u = data.getData();
-            CropImage.activity(u).setGuidelines(CropImageView.Guidelines.ON).setAspectRatio(200,200).start(this);
+            CropImage.activity(u).setGuidelines(CropImageView.Guidelines.ON).setAspectRatio(200, 200).start(this);
         }
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
@@ -72,7 +72,7 @@ public class editprofile extends AppCompatActivity {
     Uri rr;
     private static final int GALLERY_REQUEST = 1;
     ImageView image;
-    DatabaseReference databaseReference,dataref;
+    DatabaseReference databaseReference, dataref;
     FirebaseAuth firebaseAuth;
     String userid, uri;
     Button button;
@@ -88,12 +88,14 @@ public class editprofile extends AppCompatActivity {
         username = findViewById(R.id.username1);
         button = findViewById(R.id.update);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("1");
-        storageref= FirebaseStorage.getInstance().getReference();
+        storageref = FirebaseStorage.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
         userid = firebaseAuth.getCurrentUser().getUid();
         image = findViewById(R.id.image1);
 
         dataref = FirebaseDatabase.getInstance().getReference().child("1").child("User details").child(userid);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -108,113 +110,121 @@ public class editprofile extends AppCompatActivity {
             }
         });
 
-    button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
 
-        @Override
-        public void onClick(View view) {
-            if (resultu != null) {
-                final ProgressDialog pd = ProgressDialog.show(editprofile.this, "Please Wait", "Updating Details");
-                pd.show();
-                final String random = UUID.randomUUID().toString();
-                storageref = storageref.child("Profile Pictures/" + random+".jpg");
-                UploadTask uploadTask = storageref.putFile(resultu);
-                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                    @Override
-                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                        if (!task.isSuccessful()) {
-                            throw task.getException();
-                        }
-
-                        // Continue with the task to get the download URL
-                        return storageref.getDownloadUrl();
-                    }
-                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Uri> task) {
-                        if (task.isSuccessful()) {
-                            Uri downloadUri = task.getResult();
-                            rr = downloadUri;
-
-                           if(rr!=null)
-                           {
-                               dataref.addValueEventListener(new ValueEventListener() {
-                                   @Override
-                                   public void onDataChange(DataSnapshot dataSnapshot) {
-
-                                       dataSnapshot.getRef().child("name").setValue(name.getText().toString());
-                                       dataSnapshot.getRef().child("username").setValue(username.getText().toString());
-                                       if(rr!=null)
-                                       {
-                                           dataSnapshot.getRef().child("image").setValue(rr.toString());
-                                           pd.dismiss();
-                                           Toast.makeText(editprofile.this,"Profile Updated",Toast.LENGTH_SHORT).show();
-                                       }
-                                   }
-
-                                   @Override
-                                   public void onCancelled(DatabaseError databaseError) {
-
-                                   }
-                               });
-                           }
-                           else {
-                               Toast.makeText(editprofile.this,"Error Updating profile picture",Toast.LENGTH_SHORT).show();
-                           }
-
-                        } else {
-                            // Handle failures
-                            // ...
-                        }
-                    }
-                });
-            }
-            else{
-
-                dataref.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        final ProgressDialog progressDialog1=ProgressDialog.show(editprofile.this,"Please Wait","Updating details");
-                        final Timer t = new Timer();
-                        t.schedule(new TimerTask() {
-                            public void run() {
-                                finish();
-                                progressDialog1.dismiss();
-                                t.cancel();
-
+            @Override
+            public void onClick(View view) {
+                if (resultu != null) {
+                    final ProgressDialog pd = ProgressDialog.show(editprofile.this, "Please Wait", "Updating Details");
+                    pd.show();
+                    final String random = UUID.randomUUID().toString();
+                    storageref = storageref.child("Profile Pictures/" + random + ".jpg");
+                    UploadTask uploadTask = storageref.putFile(resultu);
+                    Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                        @Override
+                        public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                            if (!task.isSuccessful()) {
+                                throw task.getException();
                             }
-                        }, 3000);
 
-                        dataSnapshot.getRef().child("name").setValue(name.getText().toString());
-                        dataSnapshot.getRef().child("username").setValue(username.getText().toString());
-                    }
+                            // Continue with the task to get the download URL
+                            return storageref.getDownloadUrl();
+                        }
+                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            if (task.isSuccessful()) {
+                                Uri downloadUri = task.getResult();
+                                rr = downloadUri;
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                                if (rr != null) {
+                                    dataref.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    }
-                });
+                                            dataSnapshot.getRef().child("name").setValue(name.getText().toString());
+                                            dataSnapshot.getRef().child("username").setValue(username.getText().toString());
+                                            if (rr != null) {
+                                                dataSnapshot.getRef().child("image").setValue(rr.toString());
+                                                pd.dismiss();
+                                                Toast.makeText(editprofile.this, "Profile Updated", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+
+                                        }
+                                    });
+                                } else {
+                                    Toast.makeText(editprofile.this, "Error Updating profile picture", Toast.LENGTH_SHORT).show();
+                                }
+
+                            } else {
+                                // Handle failures
+                                // ...
+                            }
+                        }
+                    });
+                } else {
+
+                    dataref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                            final ProgressDialog progressDialog1 = ProgressDialog.show(editprofile.this, "Please Wait", "Updating details");
+                            final Timer t = new Timer();
+                            t.schedule(new TimerTask() {
+                                public void run() {
+                                    finish();
+                                    progressDialog1.dismiss();
+                                    t.cancel();
+
+                                }
+                            }, 3000);
+
+                            dataSnapshot.getRef().child("name").setValue(name.getText().toString());
+                            dataSnapshot.getRef().child("username").setValue(username.getText().toString());
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+                }
 
             }
 
-        }
-
-    });
+        });
     }
 
     private void display(DataSnapshot dataSnapshot) {
 
-                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                            get_details d = new get_details();
-                            d.setName(dataSnapshot1.child(userid).getValue(get_details.class).getName());
-                            d.setEmail(dataSnapshot1.child(userid).getValue(get_details.class).getEmail());
-                            d.setImage(dataSnapshot1.child(userid).getValue(get_details.class).getImage());
-                            d.setUsername(dataSnapshot1.child(userid).getValue(get_details.class).getUsername());
-                            uri = d.getImage();
-                            name.setText(d.getName());
-                            email.setText(d.getEmail());
-                            username.setText(d.getUsername());
-                            Picasso.get().load(uri).resize(100,100).centerCrop().into(image);
-                        }
-                    }
+        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+            get_details d = new get_details();
+            d.setName(dataSnapshot1.child(userid).getValue(get_details.class).getName());
+            d.setEmail(dataSnapshot1.child(userid).getValue(get_details.class).getEmail());
+            d.setImage(dataSnapshot1.child(userid).getValue(get_details.class).getImage());
+            d.setUsername(dataSnapshot1.child(userid).getValue(get_details.class).getUsername());
+            uri = d.getImage();
+            name.setText(d.getName());
+            email.setText(d.getEmail());
+            username.setText(d.getUsername());
+            Picasso.get().load(uri).resize(100, 100).centerCrop().into(image);
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.right_out, R.anim.right_in);
+    }
+}

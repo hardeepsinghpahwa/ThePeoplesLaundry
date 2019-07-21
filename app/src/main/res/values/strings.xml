@@ -17,4 +17,5 @@
     <string name="set_username">Set Username</string>
     <string name="enter_full_name">Enter full name</string>
     <string name="select_profile_picture">Select profile picture</string>
+    <string name="send_verification_link">Send Verification Link</string>
 </resources>

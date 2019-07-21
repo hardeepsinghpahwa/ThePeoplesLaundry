@@ -27,12 +27,14 @@ public class Launcher extends AppCompatActivity {
         if(auth.getCurrentUser()!=null)
         {
             startActivity(new Intent(Launcher.this, The_user_profile.class));
+            finish();
         }
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Launcher.this,Main.class));
+                finish();
             }
         });
     }
