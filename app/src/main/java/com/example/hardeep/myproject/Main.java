@@ -43,6 +43,7 @@ public class Main extends AppCompatActivity {
     Map<String, Object> tok;
     CollectionReference collectionReference;
 
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class Main extends AppCompatActivity {
         newacc = findViewById(R.id.newacc);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        button.setOnClickListener(new View.OnClickListener() {
+       button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -154,4 +155,6 @@ public class Main extends AppCompatActivity {
         return matcher.matches();
 
     }
+
+
 }

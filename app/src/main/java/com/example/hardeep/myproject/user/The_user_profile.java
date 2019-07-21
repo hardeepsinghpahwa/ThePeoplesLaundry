@@ -48,7 +48,7 @@ public class The_user_profile extends AppCompatActivity
     String userid,uri;
     String instantid;
     NavigationView navigationView;
-    boolean doubleBackToExitPressedOnce = false;
+    boolean exit = false;
 
 
     @Override
@@ -184,24 +184,25 @@ public class The_user_profile extends AppCompatActivity
     }
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (doubleBackToExitPressedOnce) {
+            if (exit) {
                 finish();
                 return;
             }
 
-            this.doubleBackToExitPressedOnce = true;
+            this.exit = true;
             Toast.makeText(this, "Please click back again to exit", Toast.LENGTH_SHORT).show();
 
             new Handler().postDelayed(new Runnable() {
 
                 @Override
                 public void run() {
-                    doubleBackToExitPressedOnce = false;
+                    exit = false;
                 }
             }, 2000);
         }
