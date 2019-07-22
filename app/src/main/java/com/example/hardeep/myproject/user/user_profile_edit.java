@@ -108,6 +108,7 @@ public class user_profile_edit extends Fragment {
                                 alertDialog.dismiss();
                                 FirebaseAuth.getInstance().signOut();
                                 startActivity(new Intent(getActivity(), Main.class));
+                                getActivity().finish();
 
                                 Toast.makeText(getContext(),"Successfully Signed Out",Toast.LENGTH_SHORT).show();
 

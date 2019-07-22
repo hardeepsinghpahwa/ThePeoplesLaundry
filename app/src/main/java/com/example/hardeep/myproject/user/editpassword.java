@@ -30,6 +30,7 @@ public class editpassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editpassword);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth=FirebaseAuth.getInstance();
         userid = firebaseAuth.getCurrentUser().getUid();
@@ -115,6 +116,17 @@ public class editpassword extends AppCompatActivity {
             return true;
         else
             return false;
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.right_out, R.anim.right_in);
     }
 
     }
