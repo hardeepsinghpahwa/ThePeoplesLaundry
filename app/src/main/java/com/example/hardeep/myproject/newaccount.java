@@ -1,6 +1,7 @@
 package com.example.hardeep.myproject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -37,6 +38,8 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import dmax.dialog.SpotsDialog;
 
 
 public class newaccount extends AppCompatActivity {
@@ -103,7 +106,6 @@ public class newaccount extends AppCompatActivity {
         button = findViewById(R.id.createacc);
         layout = findViewById(R.id.layout);
         verifyemail = findViewById(R.id.verifybutton);
-        progressBar = findViewById(R.id.progressbar1);
         reenterpassword = findViewById(R.id.reenterpassword);
 
         storageref = FirebaseStorage.getInstance().getReference();
@@ -184,6 +186,14 @@ public class newaccount extends AppCompatActivity {
                                 c = 1;
                                 o = 1;
                                 if (resultUri != null) {
+                                    final AlertDialog alertDialog = new SpotsDialog.Builder()
+                                            .setContext(newaccount.this)
+                                            .setMessage("Creating your account")
+                                            .setCancelable(false)
+                                            .setTheme(R.style.Custom)
+                                            .build();
+
+                                    alertDialog.show();
                                     button.setClickable(false);
                                     user_id = auth.getCurrentUser().getUid();
                                     final ProgressDialog pd = ProgressDialog.show(newaccount.this, "Please Wait", "Uploading Details");
@@ -206,7 +216,6 @@ public class newaccount extends AppCompatActivity {
                                                 Uri downloadUri = task.getResult();
                                                 image = downloadUri;
                                                 pd.dismiss();
-                                                progressBar.setVisibility(View.VISIBLE);
 
                                                 auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                                     @Override
@@ -220,7 +229,7 @@ public class newaccount extends AppCompatActivity {
                                                             public void onSuccess(Void aVoid) {
                                                                 button.setClickable(false);
                                                                 finish();
-                                                                progressBar.setVisibility(View.INVISIBLE);
+                                                                alertDialog.dismiss();
                                                                 Toast.makeText(newaccount.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                                             }
                                                         });
@@ -233,7 +242,14 @@ public class newaccount extends AppCompatActivity {
 
                                     image = Uri.parse("http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png");
                                     button.setClickable(false);
-                                    progressBar.setVisibility(View.VISIBLE);
+                                    final AlertDialog alertDialog = new SpotsDialog.Builder()
+                                            .setContext(newaccount.this)
+                                            .setMessage("Creating your account")
+                                            .setCancelable(false)
+                                            .setTheme(R.style.Custom)
+                                            .build();
+
+                                    alertDialog.show();
                                     auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                         @Override
                                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -250,7 +266,8 @@ public class newaccount extends AppCompatActivity {
                                                     Toast.makeText(newaccount.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                                     button.setClickable(false);
                                                     finish();
-                                                    progressBar.setVisibility(View.INVISIBLE);
+
+                                                    alertDialog.dismiss();
                                                 }
                                             });
                                         }
