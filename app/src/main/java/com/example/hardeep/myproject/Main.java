@@ -58,7 +58,8 @@ public class Main extends AppCompatActivity {
         newacc = findViewById(R.id.newacc);
         firebaseAuth = FirebaseAuth.getInstance();
 
-
+        email.setText("hardeepsinghpahwa.in@gmail.com");
+        password.setText("hello1234");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
