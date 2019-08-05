@@ -126,15 +126,13 @@ public class Main extends AppCompatActivity {
                                                 alertDialog.dismiss();
                                                 //progressDialog.dismiss();
                                                 if (FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
+                                                    Toast.makeText(Main.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                                                     finish();
                                                     startActivity(new Intent(getApplicationContext(), The_user_profile.class));
                                                 } else {
                                                     finish();
                                                     startActivity(new Intent(getApplicationContext(), EmailVerification.class));
                                                 }
-
-
-                                                Toast.makeText(Main.this, "Login Successful", Toast.LENGTH_LONG).show();
 
                                             }
 
@@ -143,7 +141,6 @@ public class Main extends AppCompatActivity {
 
                                     } else {
                                         Toast.makeText(Main.this, "Email And Password mismatch", Toast.LENGTH_LONG).show();
-
                                     }
                                 }
                             });
