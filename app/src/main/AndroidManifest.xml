@@ -16,7 +16,8 @@
         android:roundIcon="@drawable/logo1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewCompleted"></activity>
+        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".ViewCompleted" />
         <activity android:name=".ViewRejected" />
         <activity android:name=".Order_details_request" />
         <activity android:name=".EmailVerification" />
@@ -26,9 +27,9 @@
         <activity
             android:name=".Main"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".newaccount"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            />
+        <activity
+            android:name=".newaccount"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".user.The_user_profile"
             android:label="@string/title_activity_the_user_profile"
@@ -40,7 +41,6 @@
         <activity
             android:name=".Launcher"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,11 +54,9 @@
             </intent-filter>
         </service>
 
-
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
-
     </application>
 
 </manifest>

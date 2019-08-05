@@ -19,4 +19,10 @@
     <string name="select_profile_picture">Select profile picture</string>
     <string name="send_verification_link">Send Verification Link</string>
     <string name="no_orders_yet">No Orders Yet</string>
+    <string name="create_a_new_account">Create a new account</string>
+    <string name="forgot_password">Forgot Account Password?</string>
+    <string name="log_in">Log In</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="password_reset_link_has_been_sent_to_your_email">Password Reset Link has been sent to your email</string>
 </resources>

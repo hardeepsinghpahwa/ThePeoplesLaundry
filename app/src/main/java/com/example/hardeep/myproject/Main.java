@@ -35,7 +35,7 @@ import dmax.dialog.SpotsDialog;
 
 public class Main extends AppCompatActivity {
 
-    TextView newacc;
+    TextView newacc,forgotpassword;
     EditText password, email;
     Button button;
     FirebaseAuth firebaseAuth;
@@ -56,10 +56,30 @@ public class Main extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         collectionReference = firebaseFirestore.collection("Users");
         newacc = findViewById(R.id.newacc);
+        forgotpassword=findViewById(R.id.forgotpassword);
         firebaseAuth = FirebaseAuth.getInstance();
 
         email.setText("hardeepsinghpahwa.in@gmail.com");
         password.setText("hello1234");
+
+
+
+        forgotpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(Main.this,ForgotPassword.class);
+
+                intent.putExtra("email",email.getText().toString());
+
+                startActivity(intent);
+
+            }
+        });
+
+
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

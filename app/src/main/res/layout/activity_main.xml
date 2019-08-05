@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -32,12 +30,13 @@
         android:layout_height="50dp"
         android:background="@drawable/edittextview"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/uname"
         android:gravity="center_vertical"
         android:textColor="@android:color/black"
         android:layout_marginRight="10dp"
         android:singleLine="true"
-        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
         />
 
     <EditText
@@ -45,11 +44,12 @@
         android:layout_width="match_parent"
         android:gravity="center_vertical"
         android:layout_height="50dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/password1"
         android:layout_marginLeft="10dp"
         android:textColor="@android:color/black"
         android:background="@drawable/edittextview"
-        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
         android:layout_marginRight="10dp"
         android:inputType="textPassword"
         android:singleLine="true"
@@ -58,24 +58,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:textSize="24dp"
+        android:text="@string/email"
+        android:textSize="24sp"
         android:fontFamily="@font/berkshire_swash"
         android:textColor="#FFFFFF"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:id="@+id/uname"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="@string/password"
         android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        android:layout_marginTop="110dp"
+        android:textSize="24sp"
+        android:layout_below="@+id/mail"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/berkshire_swash"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:id="@+id/password1"
         />
 
@@ -84,27 +85,49 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/buttonview"
             android:fontFamily="@font/berkshire_swash"
-            android:text="Log In"
+            android:text="@string/log_in"
+            android:layout_below="@+id/pass"
             android:textColor="#FFFFFF"
-            android:textSize="22dp"
+            android:textSize="22sp"
             android:textStyle="bold" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create a new account"
+        android:text="@string/create_a_new_account"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/login"
         android:id="@+id/newacc"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:clickable="true"
         android:fontFamily="@font/berkshire_swash"
-        android:onClick="Clickme"/>
+        android:onClick="Clickme"
+        android:focusable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/newacc"
+            android:id="@+id/forgotpassword"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:clickable="true"
+            android:fontFamily="@font/berkshire_swash"
+            android:onClick="Clickme"
+            android:focusable="true" />
 
     </RelativeLayout>
 
+
+
 </RelativeLayout>
+
