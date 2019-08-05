@@ -59,11 +59,7 @@ public class Main extends AppCompatActivity {
         forgotpassword=findViewById(R.id.forgotpassword);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        email.setText("hardeepsinghpahwa.in@gmail.com");
-        password.setText("hello1234");
-
-
-
+       
         forgotpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
