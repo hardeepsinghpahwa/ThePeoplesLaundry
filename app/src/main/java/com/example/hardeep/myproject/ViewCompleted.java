@@ -1,14 +1,13 @@
-package com.example.hardeep.myproject.user;
+package com.example.hardeep.myproject;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
 
-import com.example.hardeep.myproject.AdapterClass;
-import com.example.hardeep.myproject.R;
+import com.example.hardeep.myproject.user.order_items;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,14 +17,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order_click_details extends AppCompatActivity {
+public class ViewCompleted extends AppCompatActivity {
 
-    TextView total_amoun,status;
+    String orderid;
+    RecyclerView recyclerView;
+    TextView total_amoun;
     List<order_items> itemsList;
     DatabaseReference databaseReference;
     AdapterClass adapterClass;
-    RecyclerView recyclerView;
-    TextView delievryaddress,dateandtime;
+    TextView paymentmode;
 
 
     String shirtno;
@@ -58,57 +58,54 @@ public class Order_click_details extends AppCompatActivity {
     String other2name;
     String other3name;
     String total_amount;
-    String orderstatus;
+    String reas;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_click_details);
+        setContentView(R.layout.activity_view_completed);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Intent i=getIntent();
-        String ordernum=i.getStringExtra("ordernumber");
-        dateandtime=findViewById(R.id.dateandtime);
-        delievryaddress=findViewById(R.id.delievryaddress);
+        orderid = getIntent().getStringExtra("orderid");
+        Log.i("id", orderid);
 
-        final StringBuilder s=new StringBuilder(ordernum);
-        s.deleteCharAt(0);
-
-        databaseReference= FirebaseDatabase.getInstance().getReference().child("2").child("Accepted Orders").child(ordernum);
+        recyclerView = findViewById(R.id.viewcompletedrecyclerview);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("2").child("Completed Orders").child(orderid);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                    shirtno=dataSnapshot.child("shirt_count").getValue(String.class);
-                    jeanno = dataSnapshot.child("jeans_count").getValue(String.class);
-                    bedsheetno = dataSnapshot.child("bedsheet_count").getValue(String.class);
-                    sareeno = dataSnapshot.child("saree_count").getValue(String.class);
-                    coatno = dataSnapshot.child("coat_count").getValue(String .class);
-                    blanketno = dataSnapshot.child("blanket_count").getValue(String.class);
-                    socksno = dataSnapshot.child("socks_count").getValue(String.class);
-                    suitno = dataSnapshot.child("suit_count").getValue(String.class);
-                    sweatero = dataSnapshot.child("sweater_count").getValue(String.class);
-                    ungarmno = dataSnapshot.child("undergarments_count").getValue(String.class);
-                    other1no = dataSnapshot.child("other1_count").getValue(String.class);
-                    other1price = dataSnapshot.child("other1_price").getValue(String.class);
-                    other2no = dataSnapshot.child("other2_count").getValue(String.class);
-                    other2price = dataSnapshot.child("other2_price").getValue(String.class);
-                    other3no = dataSnapshot.child("other3_count").getValue(String.class);
-                    other3price = dataSnapshot.child("other3_price").getValue(String.class);
-                    other1name = dataSnapshot.child("other1_name").getValue(String.class);
-                    other2name = dataSnapshot.child("other2_name").getValue(String.class);
-                    other3name = dataSnapshot.child("other3_name").getValue(String.class);
-                    total_amount = dataSnapshot.child("totalamount").getValue(String.class);
-                    shirtprice = dataSnapshot.child("shirt_price").getValue(String.class);
-                    jeanprice = dataSnapshot.child("jeans_price").getValue(String.class);
-                    bedsheetprice = dataSnapshot.child("bedsheet_price").getValue(String.class);
-                    sareeprice = dataSnapshot.child("saree_price").getValue(String.class);
-                    coatprice = dataSnapshot.child("coat_price").getValue(String.class);
-                    blanketprice = dataSnapshot.child("blanket_price").getValue(String.class);
-                    socksprice = dataSnapshot.child("socks_price").getValue(String.class);
-                    suitprice = dataSnapshot.child("suit_price").getValue(String.class);
-                    sweaterprice = dataSnapshot.child("sweater_price").getValue(String.class);
-                    ungarmprice = dataSnapshot.child("undergarments_price").getValue(String.class);
-                    orderstatus=dataSnapshot.child("status").getValue(String.class);
+                shirtno = dataSnapshot.child("shirt_count").getValue(String.class);
+                jeanno = dataSnapshot.child("jeans_count").getValue(String.class);
+                bedsheetno = dataSnapshot.child("bedsheet_count").getValue(String.class);
+                sareeno = dataSnapshot.child("saree_count").getValue(String.class);
+                coatno = dataSnapshot.child("coat_count").getValue(String.class);
+                blanketno = dataSnapshot.child("blanket_count").getValue(String.class);
+                socksno = dataSnapshot.child("socks_count").getValue(String.class);
+                suitno = dataSnapshot.child("suit_count").getValue(String.class);
+                sweatero = dataSnapshot.child("sweater_count").getValue(String.class);
+                ungarmno = dataSnapshot.child("undergarments_count").getValue(String.class);
+                other1no = dataSnapshot.child("other1_count").getValue(String.class);
+                other1price = dataSnapshot.child("other1_price").getValue(String.class);
+                other2no = dataSnapshot.child("other2_count").getValue(String.class);
+                other2price = dataSnapshot.child("other2_price").getValue(String.class);
+                other3no = dataSnapshot.child("other3_count").getValue(String.class);
+                other3price = dataSnapshot.child("other3_price").getValue(String.class);
+                other1name = dataSnapshot.child("other1_name").getValue(String.class);
+                other2name = dataSnapshot.child("other2_name").getValue(String.class);
+                other3name = dataSnapshot.child("other3_name").getValue(String.class);
+                total_amount = dataSnapshot.child("totalamount").getValue(String.class);
+                shirtprice = dataSnapshot.child("shirt_price").getValue(String.class);
+                jeanprice = dataSnapshot.child("jeans_price").getValue(String.class);
+                bedsheetprice = dataSnapshot.child("bedsheet_price").getValue(String.class);
+                sareeprice = dataSnapshot.child("saree_price").getValue(String.class);
+                coatprice = dataSnapshot.child("coat_price").getValue(String.class);
+                blanketprice = dataSnapshot.child("blanket_price").getValue(String.class);
+                socksprice = dataSnapshot.child("socks_price").getValue(String.class);
+                suitprice = dataSnapshot.child("suit_price").getValue(String.class);
+                sweaterprice = dataSnapshot.child("sweater_price").getValue(String.class);
+                ungarmprice = dataSnapshot.child("undergarments_price").getValue(String.class);
+                reas = dataSnapshot.child("reason").getValue(String.class);
 
                 itemsList = new ArrayList<>();
                 itemsList.clear();
@@ -153,13 +150,10 @@ public class Order_click_details extends AppCompatActivity {
                     itemsList.add(new order_items(other3name, other3no, other3price));
                 }
 
-                total_amoun=findViewById(R.id.to_amount);
-                status=findViewById(R.id.orderstatus);
+                total_amoun = findViewById(R.id.totall);
+
                 total_amoun.setText(total_amount);
-                status.setText(orderstatus);
-                dateandtime.setText(dataSnapshot.child("dateandtime").getValue(String.class));
-                delievryaddress.setText(dataSnapshot.child("address").getValue(String.class));
-                recyclerView=findViewById(R.id.item_click_rec_view);
+                recyclerView = findViewById(R.id.viewcompletedrecyclerview);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 adapterClass = new AdapterClass(getApplicationContext(), itemsList);
                 recyclerView.setAdapter(adapterClass);
@@ -171,9 +165,8 @@ public class Order_click_details extends AppCompatActivity {
 
             }
         });
-
-
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -185,5 +178,4 @@ public class Order_click_details extends AppCompatActivity {
         super.onBackPressed();
         overridePendingTransition(R.anim.right_out, R.anim.right_in);
     }
-
 }

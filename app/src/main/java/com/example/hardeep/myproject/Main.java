@@ -58,7 +58,8 @@ public class Main extends AppCompatActivity {
         newacc = findViewById(R.id.newacc);
         firebaseAuth = FirebaseAuth.getInstance();
 
-       button.setOnClickListener(new View.OnClickListener() {
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

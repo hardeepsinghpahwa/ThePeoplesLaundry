@@ -31,6 +31,7 @@ public class myorders extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myorders);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth=FirebaseAuth.getInstance();
         userid=firebaseAuth.getCurrentUser().getUid();
@@ -87,5 +88,17 @@ public class myorders extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.right_out, R.anim.right_in);
     }
 }

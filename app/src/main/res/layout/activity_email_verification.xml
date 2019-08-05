@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmailVerification"
+    android:background="@drawable/backk"
+    android:padding="20dp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/verifyemailfirst"
+        android:text="Verify Email First"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="30dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/send_verification_link"
+        android:background="@drawable/buttonview"
+        android:padding="10dp"
+        android:id="@+id/verifybutton"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/verifyemailfirst"
+        android:layout_marginTop="50dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/verifybutton"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logopng"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/verifybutton"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verification Email Sent"
+            android:textSize="20sp"
+            android:id="@+id/verificationtext"
+            android:visibility="invisible"
+            android:textColor="#FFFFFF"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="timer"
+            android:textSize="20sp"
+            android:id="@+id/timer"
+            android:visibility="invisible"
+            android:layout_marginLeft="20sp"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Verified?"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_marginBottom="30dp"
+        android:layout_above="@+id/checkemailverified"
+        android:id="@+id/emailverified"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkemailverified"
+        android:text="Sign In Again"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonview"
+        android:layout_marginBottom="20dp"
+        android:textColor="#FFFFFF"
+        android:padding="10dp"
+        />
+
+</RelativeLayout>
