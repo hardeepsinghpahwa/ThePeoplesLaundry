@@ -265,6 +265,7 @@ public class newaccount extends AppCompatActivity {
                                                     email.setFocusable(false);
                                                     Toast.makeText(newaccount.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                                     button.setClickable(false);
+                                                    FirebaseAuth.getInstance().signOut();
                                                     finish();
 
                                                     alertDialog.dismiss();
