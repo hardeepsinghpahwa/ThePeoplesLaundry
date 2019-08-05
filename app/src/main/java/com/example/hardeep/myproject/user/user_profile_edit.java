@@ -96,7 +96,6 @@ public class user_profile_edit extends Fragment {
                 t.schedule(new TimerTask() {
                     public void run() {
                         Looper.prepare();
-
                         String a="";
 
                         Map<String,Object> tokenremove=new HashMap<>();
