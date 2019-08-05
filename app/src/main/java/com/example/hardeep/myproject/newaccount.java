@@ -227,6 +227,7 @@ public class newaccount extends AppCompatActivity {
                                                         databaseReference.setValue(details).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
                                                             public void onSuccess(Void aVoid) {
+
                                                                 button.setClickable(false);
                                                                 finish();
                                                                 alertDialog.dismiss();
