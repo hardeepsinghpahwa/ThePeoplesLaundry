@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#FFFFFF"
+    android:layout_height="match_parent"
+    tools:context=".NoInternet">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Internet Connection"
+        android:fontFamily="@font/berkshire_swash"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/retrybutton"
+        android:layout_marginBottom="50dp"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Retry"
+        android:textSize="20sp"
+        android:fontFamily="@font/berkshire_swash"
+        android:textStyle="bold"
+        android:id="@+id/retrybutton"
+        android:background="@drawable/buttonview"
+        android:textColor="#FFFFFF"
+        />
+</RelativeLayout>

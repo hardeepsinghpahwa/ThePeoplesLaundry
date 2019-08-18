@@ -24,11 +24,7 @@ public class Launcher extends AppCompatActivity {
         b=findViewById(R.id.button11);
         auth=FirebaseAuth.getInstance();
 
-        if(auth.getCurrentUser()!=null)
-        {
-            startActivity(new Intent(Launcher.this, The_user_profile.class));
-            finish();
-        }
+
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override

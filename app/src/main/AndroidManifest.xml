@@ -16,7 +16,16 @@
         android:roundIcon="@drawable/logo1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".Splash"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".NoInternet" />
+        <activity android:name=".ForgotPassword" />
         <activity android:name=".ViewCompleted" />
         <activity android:name=".ViewRejected" />
         <activity android:name=".Order_details_request" />
@@ -41,11 +50,7 @@
         <activity
             android:name=".Launcher"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <service android:name=".FirebaseMessagingService">

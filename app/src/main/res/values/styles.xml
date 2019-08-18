@@ -61,5 +61,13 @@
         <item name="android:fontFamily">@font/berkshire_swash</item>
 
     </style>
+    
+    <style name="Pbar" parent="Widget.AppCompat.ProgressBar">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorPrimaryDark</item>
+
+    </style>
 
 </resources>
