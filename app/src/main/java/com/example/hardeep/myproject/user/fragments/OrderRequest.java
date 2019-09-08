@@ -221,7 +221,7 @@ public class OrderRequest extends Fragment {
                             i.putExtra("other3_name", other3name.getText().toString());
 
                             startActivity(i);
-
+                            getActivity().overridePendingTransition(R.anim.fromright,R.anim.toright);
 
                             t.cancel();
                         }

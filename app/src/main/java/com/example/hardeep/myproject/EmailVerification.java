@@ -102,6 +102,7 @@ public class EmailVerification extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(EmailVerification.this,Main.class));
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
             }
         });
     }

@@ -16,7 +16,6 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/berkshire_swash"
             android:text="Order Details"
             android:textColor="#FFFFFF"
             android:textSize="30dp"
@@ -47,19 +46,19 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/berkshire_swash"
                         android:text="Item"
                         android:textSize="20sp"
+                        android:textStyle="bold"
                         android:layout_weight="3"
                         android:textColor="#000" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/berkshire_swash"
                         android:text="Quantity"
                         android:gravity="center"
                         android:layout_weight="2"
+                        android:textStyle="bold"
                         android:textSize="20sp"
                         android:textColor="#000" />
 
@@ -67,10 +66,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:fontFamily="@font/berkshire_swash"
                         android:text="Price"
                         android:gravity="center"
                         android:textSize="20sp"
+                        android:textStyle="bold"
                         android:layout_weight="1"
                         android:textColor="#000" />
 
@@ -96,7 +95,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/berkshire_swash"
                         android:text="Total Amount : "
                         android:textColor="#000"
                         android:textSize="20dp"
@@ -107,7 +105,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:fontFamily="serif"
                         android:text="INR"
                         android:textColor="#000"
                         android:textSize="20sp" />
@@ -118,7 +115,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:fontFamily="serif"
                         android:text="amount"
                         android:textColor="#000"
                         android:textSize="20dp" />
@@ -148,7 +144,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="serif"
                 android:gravity="start"
                 android:text="sdfsdfsdfad"
                 android:layout_gravity="center"
@@ -171,7 +166,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/berkshire_swash"
                 android:text="Delievery Address"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
@@ -184,7 +178,6 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="serif"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>
@@ -201,7 +194,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:fontFamily="@font/berkshire_swash"
                 android:text="Order Date and Time"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
@@ -214,7 +206,6 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="serif"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>

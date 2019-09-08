@@ -14,6 +14,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -87,6 +88,7 @@ public class newaccount extends AppCompatActivity {
     private ImageButton profile_image;
     private Uri uri, resultUri;
     int p = 0;
+    ImageView back;
     private EditText Name, password, username, email, reenterpassword;
     private DatabaseReference databaseReference;
     private FirebaseAuth auth;
@@ -105,6 +107,7 @@ public class newaccount extends AppCompatActivity {
         profile_image = findViewById(R.id.image);
         button = findViewById(R.id.createacc);
         layout = findViewById(R.id.layout);
+        back=findViewById(R.id.bckbutton);
         verifyemail = findViewById(R.id.verifybutton);
         reenterpassword = findViewById(R.id.reenterpassword);
 
@@ -120,6 +123,13 @@ public class newaccount extends AppCompatActivity {
                 inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
                 return false;
 
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
 
@@ -287,6 +297,12 @@ public class newaccount extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.top2,R.anim.top1);
     }
 
     private boolean Validate_password(String s) {

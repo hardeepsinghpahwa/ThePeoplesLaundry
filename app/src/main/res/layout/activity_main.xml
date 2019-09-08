@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backk"
+    android:background="@drawable/bbck"
     tools:context="com.example.hardeep.myproject.Main">
 
 
@@ -28,7 +28,7 @@
         android:id="@+id/mail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/edittextview"
+        android:background="@drawable/editt"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_below="@id/uname"
@@ -48,24 +48,23 @@
         android:layout_below="@+id/password1"
         android:layout_marginLeft="10dp"
         android:textColor="@android:color/black"
-        android:background="@drawable/edittextview"
+        android:background="@drawable/editt"
         android:paddingStart="15dp"
         android:layout_marginRight="10dp"
         android:inputType="textPassword"
         android:singleLine="true"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/email"
-        android:textSize="24sp"
-        android:fontFamily="@font/berkshire_swash"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:id="@+id/uname"
-        />
+        <TextView
+            android:id="@+id/uname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/signika"
+            android:text="@string/email"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,7 +74,6 @@
         android:textSize="24sp"
         android:layout_below="@+id/mail"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/berkshire_swash"
         android:layout_marginStart="20dp"
         android:id="@+id/password1"
         />
@@ -84,12 +82,12 @@
             android:id="@+id/login"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/pass"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:background="@drawable/buttonview"
-            android:fontFamily="@font/berkshire_swash"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/arima_madurai_medium"
             android:text="@string/log_in"
-            android:layout_below="@+id/pass"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -105,7 +103,6 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:clickable="true"
-        android:fontFamily="@font/berkshire_swash"
         android:onClick="Clickme"
         android:focusable="true" />
 
@@ -121,7 +118,6 @@
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:clickable="true"
-            android:fontFamily="@font/berkshire_swash"
             android:onClick="Clickme"
             android:focusable="true" />
 

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backk"
+    android:background="@drawable/bbck"
     tools:context="com.example.hardeep.myproject.user.fragments.Active_orders">
 
     <ProgressBar
@@ -14,22 +14,10 @@
         android:id="@+id/progressbaractive"
         />
 
-    <TextView
-        android:id="@+id/t"
-        style="@style/TextAppearance.AppCompat.Headline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/berkshire_swash"
-        android:text="Active Orders"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/t"
+        android:layout_marginTop="10dp"
         android:id="@+id/orderrecyclerview">
 
     </android.support.v7.widget.RecyclerView>

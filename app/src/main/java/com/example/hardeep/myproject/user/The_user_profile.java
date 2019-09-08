@@ -28,6 +28,7 @@ import com.example.hardeep.myproject.user.fragments.Previous_orders;
 import com.example.hardeep.myproject.user.fragments.Settings;
 import com.example.hardeep.myproject.user.fragments.Share_the_app;
 import com.example.hardeep.myproject.user.fragments.price_list;
+import com.example.hardeep.myproject.user.fragments.user_profile_edit;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -64,6 +65,7 @@ public class The_user_profile extends AppCompatActivity
             FragmentTransaction fr = getSupportFragmentManager().beginTransaction();
             fr.replace(R.id.content, frag);
             fr.commit();
+            getSupportActionBar().setTitle("Active Orders");
         }
 
         navigationView = findViewById(R.id.nav_view);
@@ -151,27 +153,35 @@ public class The_user_profile extends AppCompatActivity
 
         if (id == R.id.activeorder) {
             fragment=new Active_orders();
+            getSupportActionBar().setTitle("Active Orders");
         } else if (id == R.id.previousorders) {
             fragment=new Previous_orders();
+            getSupportActionBar().setTitle("Previous Orders");
 
         } else if (id == R.id.settings) {
             fragment=new Settings();
+            getSupportActionBar().setTitle("Settings");
 
         } else if (id == R.id.share) {
             fragment=new Share_the_app();
+            getSupportActionBar().setTitle("Share");
 
         } else if (id == R.id.pricelist) {
             fragment= new price_list();
+            getSupportActionBar().setTitle("Price List");
         }
         else if(id==R.id.profile){
             fragment=new user_profile_edit();
+            getSupportActionBar().setTitle("Profile");
         }
         else if(id==R.id.contactus){
             fragment=new Contact_us();
+            getSupportActionBar().setTitle("Contact Us");
         }
         else if(id==R.id.requestorder)
         {
             fragment=new OrderRequest();
+            getSupportActionBar().setTitle("Request Order");
         }
 
         FragmentTransaction f= getSupportFragmentManager().beginTransaction();

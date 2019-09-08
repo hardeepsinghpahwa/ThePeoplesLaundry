@@ -69,6 +69,7 @@ public class Main extends AppCompatActivity {
                 intent.putExtra("email",email.getText().toString());
 
                 startActivity(intent);
+                overridePendingTransition(R.anim.fromright,R.anim.toright);
 
             }
         });
@@ -125,9 +126,12 @@ public class Main extends AppCompatActivity {
                                                     Toast.makeText(Main.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                                                     finish();
                                                     startActivity(new Intent(getApplicationContext(), The_user_profile.class));
+                                                    overridePendingTransition(R.anim.fromright,R.anim.toright);
+
                                                 } else {
                                                     finish();
                                                     startActivity(new Intent(getApplicationContext(), EmailVerification.class));
+                                                    overridePendingTransition(R.anim.fromright,R.anim.toright);
                                                 }
 
                                             }
@@ -152,6 +156,7 @@ public class Main extends AppCompatActivity {
         {
             Intent intent = new Intent(this, newaccount.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.top2,R.anim.top1);
         }
     }
 

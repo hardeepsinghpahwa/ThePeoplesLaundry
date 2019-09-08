@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_alignParentStart="true"
     android:layout_alignParentTop="true"
-    android:background="@drawable/backk"
+    android:background="@drawable/bbck"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     tools:context=".user.fragments.OrderRequest">
@@ -32,116 +32,116 @@
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
+                    android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/berkshire_swash"
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="Name of the Cloth"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="20dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_marginTop="30dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
                     android:text="1.Shirts/T-Shirts/Kurtas"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
+                    android:textStyle="bold"
                     android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:singleLine="true"
                     android:text="2.Pent/Jeans/Dhoti/Lungi"
-                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:singleLine="true"
+                    android:textStyle="bold"
                     android:text="3.Bed Sheet"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_marginTop="13dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:singleLine="true"
+                    android:textStyle="bold"
                     android:text="4.Saree"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
+                    android:textStyle="bold"
                     android:singleLine="true"
                     android:text="5.Coat or Blazer(Dry Clean)"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:textStyle="bold"
                     android:layout_marginTop="13dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:singleLine="true"
                     android:text="6.Blanket"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:singleLine="true"
                     android:text="6.Socks(Pair)/Handkerchief"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
+                    android:textStyle="bold"
                     android:layout_height="30dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:singleLine="true"
                     android:text="7.Sweater/Hoodies/SweatShirts"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:singleLine="true"
                     android:text="8.Ladies Suit"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:singleLine="true"
                     android:text="9.Under garments(Any)"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
 
@@ -160,10 +160,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/berkshire_swash"
+                    android:textStyle="bold"
                     android:singleLine="true"
                     android:text="Quantity"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="20dp" />
 
                 <EditText
@@ -290,22 +290,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/berkshire_swash"
                     android:gravity="center_horizontal"
+                    android:textStyle="bold"
                     android:singleLine="true"
-                    android:text="Price"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/jeansprice"
                     android:layout_width="wrap_content"
+                    android:textStyle="bold"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:text="Rs.7"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
                 <TextView
@@ -314,9 +313,9 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
+                    android:textStyle="bold"
                     android:text="Rs.10"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
                 <TextView
@@ -325,9 +324,9 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
+                    android:textStyle="bold"
                     android:text="Rs.20"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
 
@@ -337,9 +336,9 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
+                    android:textStyle="bold"
                     android:text="Rs.50"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
 
@@ -347,11 +346,11 @@
                     android:id="@+id/blanketprice"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:text="Rs.200"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
 
@@ -359,23 +358,23 @@
                     android:id="@+id/socksprice"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:text="Rs.2"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
 
                 <TextView
                     android:id="@+id/sweaterprice"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:text="Rs.10"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
 
@@ -384,10 +383,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
+                    android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:text="Rs.10"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
 
@@ -397,20 +396,20 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
+                    android:textStyle="bold"
                     android:text="Rs.3"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/shirtprice"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:text="Rs.5"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15dp" />
 
             </LinearLayout>
@@ -424,10 +423,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/l2"
             android:layout_centerHorizontal="true"
+            android:textStyle="bold"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/berkshire_swash"
             android:text="Add More"
-            android:textColor="#FFFFFF"
+            android:textColor="#000"
             android:textSize="20dp" />
 
         <LinearLayout
@@ -448,30 +447,30 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:fontFamily="@font/berkshire_swash"
+                    android:textStyle="bold"
                     android:gravity="center"
                     android:text="10."
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
+                    android:textStyle="bold"
                     android:gravity="center"
                     android:text="11."
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/berkshire_swash"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:text="12."
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -570,7 +569,6 @@
             android:layout_marginTop="50dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/buttonview"
-            android:fontFamily="@font/berkshire_swash"
             android:text="Proceed"
             android:textColor="@android:color/white"
             android:textStyle="bold" />

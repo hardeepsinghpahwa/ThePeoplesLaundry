@@ -31,7 +31,6 @@
                 android:layout_height="wrap_content"
                 android:text="ORDER"
                 android:textStyle="bold"
-                android:fontFamily="@font/berkshire_swash"
                 android:textColor="#000"
                 android:textSize="40sp"
                 />
@@ -40,7 +39,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="serif"
                 android:text="Order_id"
                 android:textColor="#000"
                 android:textStyle="bold"
@@ -50,7 +48,6 @@
                 android:id="@+id/cost_id"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:fontFamily="serif"
                 android:text="INR 34"
                 android:textColor="#000"
                 android:layout_marginTop="5dp"
@@ -61,7 +58,6 @@
                 android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:fontFamily="@font/berkshire_swash"
                 android:text="Status"
                 android:textSize="20sp"
                 android:textStyle="bold" />

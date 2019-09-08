@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backk"
+    android:background="@color/colorPrimary"
     tools:context=".Launcher">
 
     <ImageView
@@ -22,7 +22,6 @@
         android:layout_below="@+id/head"
         android:layout_centerHorizontal="true"
         android:background="@drawable/buttonview"
-        android:fontFamily="@font/berkshire_swash"
         android:text="Log In / Sign Up"
         android:layout_marginTop="50dp"
         android:textColor="#FFFFFF"
@@ -30,17 +29,16 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/log"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
-        android:fontFamily="cursive"
         android:gravity="center_horizontal|center_vertical"
         android:text="Welcome To The People's Laundry"
         android:textColor="#FFFFFF"
         android:textSize="40dp"
-        android:id="@+id/head"
         android:textStyle="bold" />
 
 </RelativeLayout>

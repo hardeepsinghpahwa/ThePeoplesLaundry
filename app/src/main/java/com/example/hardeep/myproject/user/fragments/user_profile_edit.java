@@ -1,7 +1,6 @@
-package com.example.hardeep.myproject.user;
+package com.example.hardeep.myproject.user.fragments;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
@@ -18,6 +17,7 @@ import android.widget.Toast;
 import com.example.hardeep.myproject.Main;
 import com.example.hardeep.myproject.R;
 import com.example.hardeep.myproject.get_details;
+import com.example.hardeep.myproject.user.MyAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -107,6 +107,7 @@ public class user_profile_edit extends Fragment {
                                 alertDialog.dismiss();
                                 FirebaseAuth.getInstance().signOut();
                                 startActivity(new Intent(getActivity(), Main.class));
+                                getActivity().overridePendingTransition(R.anim.fromright,R.anim.toright);
                                 getActivity().finish();
 
                                 Toast.makeText(getContext(),"Successfully Signed Out",Toast.LENGTH_SHORT).show();

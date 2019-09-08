@@ -1,5 +1,7 @@
 package com.example.hardeep.myproject;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -73,6 +76,36 @@ public class CompletedOrders extends Fragment {
 
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<details, Order_View_holder>
                 (details.class, R.layout.format_order, Order_View_holder.class, dataref) {
+
+            int lastPosition=-1;
+            @Override
+            public void onViewAttachedToWindow(@NonNull final Order_View_holder holder) {
+                super.onViewAttachedToWindow(holder);
+                holder.itemView.setVisibility(View.INVISIBLE);
+
+                if (holder.getPosition() > lastPosition) {
+                    holder.itemView.getHandler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            holder.itemView.setVisibility(View.VISIBLE);
+                            ObjectAnimator alpha = ObjectAnimator.ofFloat(holder.itemView, "alpha", 0f, 1f);
+                            ObjectAnimator scaleY = ObjectAnimator.ofFloat(holder.itemView, "scaleY", 0f, 1f);
+                            ObjectAnimator scaleX = ObjectAnimator.ofFloat(holder.itemView, "scaleX", 0f, 1f);
+                            AnimatorSet animSet = new AnimatorSet();
+                            animSet.play(alpha).with(scaleY).with(scaleX);
+                            animSet.setInterpolator(new OvershootInterpolator());
+                            animSet.setDuration(400);
+                            animSet.start();
+
+                        }
+                    }, 200);
+
+                    lastPosition = holder.getPosition();
+                } else {
+                    holder.itemView.setVisibility(View.VISIBLE);
+                }
+            }
+
             @Override
             protected void populateViewHolder(final Order_View_holder viewHolder, final details model, final int position) {
 
@@ -81,7 +114,7 @@ public class CompletedOrders extends Fragment {
                     noorder.setVisibility(View.VISIBLE);
                 }
                 String uid = model.getUserid();
-                viewHolder.setOrderid(firebaseRecyclerAdapter.getRef(position).getKey());
+                viewHolder.setOrderid("#"+firebaseRecyclerAdapter.getRef(position).getKey());
 
                 FirebaseDatabase.getInstance().getReference().child("2").child("Completed Orders").child(firebaseRecyclerAdapter.getRef(position).getKey()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -96,6 +129,7 @@ public class CompletedOrders extends Fragment {
                                 Intent i = new Intent(getActivity(), ViewCompleted.class);
                                 i.putExtra("orderid", firebaseRecyclerAdapter.getRef(position).getKey());
                                 startActivity(i);
+                                getActivity().overridePendingTransition(R.anim.fromright,R.anim.toright);
                             }
                         });
                     }

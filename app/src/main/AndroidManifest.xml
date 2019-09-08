@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Splash"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/NoBar">
             <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
@@ -35,10 +35,12 @@
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".Main"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/NoBar" />
         <activity
             android:name=".newaccount"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/NoBar"
+            android:windowSoftInputMode="stateHidden|adjustResize|adjustPan"
+            />
         <activity
             android:name=".user.The_user_profile"
             android:label="@string/title_activity_the_user_profile"
@@ -49,7 +51,7 @@
         <activity android:name=".user.Order_click_details" />
         <activity
             android:name=".Launcher"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/NoBar">
 
         </activity>
 

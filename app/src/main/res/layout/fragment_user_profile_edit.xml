@@ -4,8 +4,8 @@
     android:id="@+id/rel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backk"
-    tools:context="com.example.hardeep.myproject.user.user_profile_edit">
+    android:background="@drawable/bbck"
+    tools:context="com.example.hardeep.myproject.user.fragments.user_profile_edit">
 
     <FrameLayout
         android:id="@+id/fram"
@@ -60,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/circleImage"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/berkshire_swash"
                 android:gravity="center_horizontal"
                 android:textColor="#000"
                 android:textSize="29dp" />
@@ -71,7 +70,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nameuser"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/berkshire_swash"
                 android:gravity="center_horizontal"
                 android:textColor="#000"
                 android:textSize="20dp" />
@@ -87,7 +85,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
         android:background="@drawable/buttonview"
-        android:fontFamily="@font/berkshire_swash"
         android:gravity="center"
         android:layout_alignParentBottom="true"
         android:text="Sign Out"

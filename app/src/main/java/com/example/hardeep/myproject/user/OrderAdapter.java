@@ -1,5 +1,8 @@
 package com.example.hardeep.myproject.user;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -7,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -25,11 +29,37 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     ArrayList<String> statuses;
     Context context;
     ProgressBar progressBar;
+    int lastPosition=-1;
 
     @Override
-    public void onViewAttachedToWindow(@NonNull ViewHolder holder) {
+    public void onViewAttachedToWindow(@NonNull final ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
         progressBar.setVisibility(View.GONE);
+
+        holder.itemView.setVisibility(View.INVISIBLE);
+
+        if (holder.getPosition() > lastPosition) {
+            holder.itemView.getHandler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    holder.itemView.setVisibility(View.VISIBLE);
+                    ObjectAnimator alpha = ObjectAnimator.ofFloat(holder.itemView, "alpha", 0f, 1f);
+                    ObjectAnimator scaleY = ObjectAnimator.ofFloat(holder.itemView, "scaleY", 0f, 1f);
+                    ObjectAnimator scaleX = ObjectAnimator.ofFloat(holder.itemView, "scaleX", 0f, 1f);
+                    AnimatorSet animSet = new AnimatorSet();
+                    animSet.play(alpha).with(scaleY).with(scaleX);
+                    animSet.setInterpolator(new OvershootInterpolator());
+                    animSet.setDuration(400);
+                    animSet.start();
+
+                }
+            }, 200);
+
+            lastPosition = holder.getPosition();
+        } else {
+            holder.itemView.setVisibility(View.VISIBLE);
+        }
+
     }
 
     public OrderAdapter(ArrayList<String> orderid, ArrayList<String >costs, ArrayList<String> statuses, Context context,ProgressBar progressBar) {
@@ -45,6 +75,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         View view= LayoutInflater.from(context).inflate(R.layout.user_order_format,parent,false);
         return new ViewHolder(view);
     }
+
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
@@ -83,7 +114,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                     final String order=s.toString();
                     Intent i=new Intent(context,Order_click_details.class);
                     i.putExtra("ordernumber",order);
-                    context.startActivity(i);
+                    ActivityOptions options =
+                            ActivityOptions.makeCustomAnimation(context, R.anim.fromright, R.anim.toright);
+                    context.startActivity(i,options.toBundle());
                 }
             });
         }

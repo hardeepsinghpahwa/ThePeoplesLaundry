@@ -33,7 +33,6 @@
         android:layout_height="wrap_content"
         android:textColor="#000"
         android:layout_gravity="center"
-        android:fontFamily="@font/berkshire_swash"
         android:layout_marginStart="20dp"
         android:textSize="20sp"
         />

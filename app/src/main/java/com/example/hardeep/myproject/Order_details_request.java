@@ -332,6 +332,7 @@ public class Order_details_request extends AppCompatActivity {
                             alertDialog.dismiss();
                             finish();
                             startActivity(new Intent(getApplicationContext(), The_user_profile.class));
+                            overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                             Toast.makeText(Order_details_request.this, "Order Request Sent", Toast.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -355,6 +356,6 @@ public class Order_details_request extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.right_out, R.anim.right_in);
+        overridePendingTransition(R.anim.fromright, R.anim.toright);
     }
 }

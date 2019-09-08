@@ -19,7 +19,6 @@
             android:layout_centerHorizontal="true"
             android:text="Order Details"
             android:textColor="#FFFFFF"
-            android:fontFamily="@font/berkshire_swash"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -51,7 +50,6 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/berkshire_swash"
                     android:text="Item"
                     android:textSize="20sp"
                     android:layout_weight="3"
@@ -60,7 +58,6 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/berkshire_swash"
                     android:text="Quantity"
                     android:gravity="center"
                     android:layout_weight="2"
@@ -71,7 +68,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:fontFamily="@font/berkshire_swash"
                     android:text="Price"
                     android:gravity="center"
                     android:textSize="20sp"
@@ -100,7 +96,6 @@
             android:layout_below="@+id/l5"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/berkshire_swash"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:text="Select Pickup Address" />
@@ -131,7 +126,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/berkshire_swash"
                         android:text="Address 1"
                         android:textStyle="bold"
                         android:textColor="#FFFFFF" />
@@ -193,7 +187,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Address 2"
-                        android:fontFamily="@font/berkshire_swash"
                         android:textStyle="bold"
                         android:textColor="#FFFFFF" />
 
@@ -213,7 +206,7 @@
                     android:gravity="start"
                     android:textColor="#FFFFFF"
                     android:paddingStart="5dp"
-                    android:textSize="10sp" />
+                    android:textSize="15sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

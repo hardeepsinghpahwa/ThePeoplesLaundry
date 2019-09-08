@@ -6,6 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/signika</item>
+    </style>
+
+    <style name="NoBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/signika</item>
     </style>
 
     <style name="DialogSlideAnim" parent="@android:style/Theme.Dialog">
@@ -19,7 +28,7 @@
     <style name="NavigationDrawerStyle">
 
         <item name="android:textSize">15sp</item><!-- text size in menu-->
-        <item name="android:fontFamily">@font/berkshire_swash</item>
+        <item name="android:fontFamily">@font/signika</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#FFFFFF</item>
         <!-- item size in menu-->
@@ -37,7 +46,7 @@
 
     <style name="Custom" parent="android:Theme.DeviceDefault.Dialog">
         <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
-        <item name="android:fontFamily">@font/berkshire_swash</item>
+        <item name="android:fontFamily">@font/signika</item>
         <item name="DialogSpotColor">@color/colorAccent</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="DialogSpotCount">6</item>
@@ -58,7 +67,7 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="colorAccent">@android:color/white</item>
-        <item name="android:fontFamily">@font/berkshire_swash</item>
+        <item name="android:fontFamily">@font/signika</item>
 
     </style>
     

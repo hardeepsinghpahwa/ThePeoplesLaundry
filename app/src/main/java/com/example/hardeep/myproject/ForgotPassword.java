@@ -107,6 +107,6 @@ public class ForgotPassword extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.right_out, R.anim.right_in);
+        overridePendingTransition(R.anim.fromright,R.anim.toright);
     }
 }
