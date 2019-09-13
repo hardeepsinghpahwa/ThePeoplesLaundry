@@ -2,24 +2,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bbck"
     tools:context="com.example.hardeep.myproject.user.fragments.Active_orders">
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        style="@style/Widget.AppCompat.ProgressBar"
+        app:lottie_rawRes="@raw/laundry"
+        android:layout_centerVertical="true"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
         android:id="@+id/progressbaractive"
         />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:id="@+id/orderrecyclerview">
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>

@@ -3,11 +3,9 @@ package com.example.hardeep.myproject;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -59,7 +57,9 @@ public class Main extends AppCompatActivity {
         forgotpassword=findViewById(R.id.forgotpassword);
         firebaseAuth = FirebaseAuth.getInstance();
 
-       
+
+        email.setText("hardeepsinghpahwa.in@gmail.com");
+        password.setText("hello1234");
         forgotpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

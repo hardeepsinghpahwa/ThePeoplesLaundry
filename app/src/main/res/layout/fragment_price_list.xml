@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bbck"
+    >
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        android:background="#FFFFFF"
+        android:visibility="visible"
+        android:id="@+id/pricel"
         tools:context="com.example.hardeep.layoutorders.MainActivity">
 
 
@@ -17,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Price List"
-            android:textColor="#000000"
+            android:textColor="#000"
             android:textStyle="bold"
             android:textSize="30dp" />
 
@@ -28,7 +31,7 @@
             android:layout_marginTop="70dp"
             android:text="Cloth Type"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textColor="#000"
             android:textSize="20dp" />
 
         <TextView
@@ -38,36 +41,52 @@
             android:layout_marginTop="70dp"
             android:gravity="center_horizontal"
             android:text="Price per item"
-            android:textColor="#000000"
+            android:textColor="#000"
             android:textStyle="bold"
             android:textSize="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@drawable/editt"
+            android:textStyle="bold"
+            android:textColor="#000"
             android:layout_marginTop="130dp"
-            android:text="1.Shirts/T-Shirts/Kurtas"
+            android:text="1. Shirts/T-Shirts/Kurtas"
             android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#000"
             android:layout_height="wrap_content"
             android:layout_marginLeft="250dp"
+            android:padding="5dp"
             android:layout_marginTop="130dp"
             android:text="Rs.5"
+            android:background="@drawable/editt"
             android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:textColor="#000"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:background="@drawable/editt"
             android:layout_marginTop="170dp"
-            android:text="2.Pent/Jeans/Dhoti/Lungi"
+            android:padding="5dp"
+            android:text="2. Pent/Jeans/Dhoti/Lungi"
             android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textStyle="bold"
             android:layout_marginLeft="250dp"
+            android:textColor="#000"
+            android:background="@drawable/editt"
             android:layout_marginTop="170dp"
             android:text="Rs.7"
             android:textSize="15dp" />
@@ -75,14 +94,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/editt"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textColor="#000"
             android:layout_marginTop="210dp"
-            android:text="3.Bed Sheet"
+            android:text="3. Bed Sheet"
             android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#000"
             android:layout_marginLeft="250dp"
+            android:padding="5dp"
+            android:background="@drawable/editt"
+            android:textStyle="bold"
             android:layout_marginTop="210dp"
             android:text="Rs.10"
             android:textSize="15dp" />
@@ -90,15 +117,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/editt"
+            android:textColor="#000"
+            android:padding="5dp"
+            android:textStyle="bold"
             android:layout_marginTop="250dp"
-            android:text="4.Saree"
+            android:text="4. Saree"
             android:textSize="15dp" />
 
 
         <TextView
             android:layout_width="wrap_content"
+            android:textColor="#000"
+            android:background="@drawable/editt"
             android:layout_height="wrap_content"
             android:layout_marginLeft="250dp"
+            android:textStyle="bold"
+            android:padding="5dp"
             android:layout_marginTop="250dp"
             android:text="Rs.20"
             android:textSize="15dp" />
@@ -106,43 +141,67 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/editt"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textStyle="bold"
             android:layout_marginTop="290dp"
-            android:text="5.Coat or Blazer(Dry Clean)"
+            android:text="5. Coat or Blazer(Dry Clean)"
             android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/editt"
+            android:padding="5dp"
+            android:textColor="#000"
             android:layout_marginLeft="250dp"
+            android:textStyle="bold"
             android:layout_marginTop="290dp"
             android:text="Rs.50"
             android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:textColor="#000"
+            android:padding="5dp"
+            android:background="@drawable/editt"
             android:layout_height="wrap_content"
             android:layout_marginTop="330dp"
-            android:text="6.Blanket"
+            android:textStyle="bold"
+            android:text="6. Blanket"
             android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/editt"
             android:layout_marginLeft="250dp"
+            android:textColor="#000"
             android:layout_marginTop="330dp"
+            android:textStyle="bold"
+            android:padding="5dp"
             android:text="Rs.200"
             android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:textColor="#000"
+            android:background="@drawable/editt"
             android:layout_height="wrap_content"
             android:layout_marginTop="370dp"
-            android:text="6.Socks(Pair)/Handkerchief"
+            android:text="6. Socks(Pair)/Handkerchief"
+            android:padding="5dp"
+            android:textStyle="bold"
             android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/editt"
+            android:textColor="#000"
+            android:padding="5dp"
+            android:textStyle="bold"
             android:layout_marginLeft="250dp"
             android:layout_marginTop="370dp"
             android:text="Rs.2"
@@ -151,29 +210,45 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/editt"
+            android:textColor="#000"
             android:layout_marginTop="410dp"
+            android:textStyle="bold"
+            android:padding="5dp"
             android:textSize="15dp"
-            android:text="7.Sweater/Hoodies/SweatShirts" />
+            android:text="7. Sweater/Hoodies/SweatShirts" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#000"
             android:layout_marginLeft="250dp"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:background="@drawable/editt"
             android:layout_marginTop="410dp"
             android:text="Rs.10"
             android:textSize="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:padding="5dp"
             android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:background="@drawable/editt"
             android:layout_marginTop="450dp"
+            android:textStyle="bold"
             android:textSize="15dp"
-            android:text="8.Ladies Suit" />
+            android:text="8. Ladies Suit" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:background="@drawable/editt"
             android:layout_height="wrap_content"
+            android:textColor="#000"
             android:layout_marginLeft="250dp"
+            android:textStyle="bold"
+            android:padding="5dp"
             android:layout_marginTop="450dp"
             android:text="Rs.10"
             android:textSize="15dp" />
@@ -181,15 +256,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:background="@drawable/editt"
+            android:textColor="#000"
             android:layout_marginTop="490dp"
             android:textSize="15dp"
-            android:text="9.Under garments(Any)" />
+            android:text="9. Under garments(Any)" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/editt"
+            android:textColor="#000"
             android:layout_marginLeft="250dp"
             android:layout_marginTop="490dp"
+            android:padding="5dp"
+            android:textStyle="bold"
             android:text="Rs.3"
             android:textSize="15dp" />
 

@@ -5,15 +5,18 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.hardeep.myproject.Order_details_request;
 import com.example.hardeep.myproject.R;
 import com.google.firebase.database.DatabaseReference;
@@ -32,7 +35,8 @@ public class OrderRequest extends Fragment {
     RelativeLayout order;
     EditText  shirt, jeans, bedsheet, saree, coat, blanket, socks, sweater, suit, undergarments, other1, other2, other3, other1price, other2price, other3price, other1name, other2name, other3name;
     Button proceed;
-    TextView shirtprice;
+    TextView shirtprice,tt;
+    LinearLayout cloth,l3,price,quantity;
     float amount = 0;
 
     int shirt_cost, jeans_cost, bed_cost, saree_cost, coat_cost, blanket_cost, socks_cost, sweater_cost, suit_cost, underg_cost, other1_cost, other2_cost, other3_cost;
@@ -54,6 +58,44 @@ public class OrderRequest extends Fragment {
         other1name = v.findViewById(R.id.other1name);
         other2name = v.findViewById(R.id.other2name);
         other3name = v.findViewById(R.id.other3name);
+
+        cloth=v.findViewById(R.id.clothdetails);
+        l3=v.findViewById(R.id.l3);
+        price=v.findViewById(R.id.pricedetails);
+        quantity=v.findViewById(R.id.quantitydetails);
+        tt=v.findViewById(R.id.tt);
+
+
+        cloth.setVisibility(View.VISIBLE);
+        l3.setVisibility(View.VISIBLE);
+        price.setVisibility(View.VISIBLE);
+        quantity.setVisibility(View.VISIBLE);
+        tt.setVisibility(View.VISIBLE);
+        proceed.setVisibility(View.VISIBLE);
+
+        YoYo.with(Techniques.Landing)
+                .duration(1000)
+                .playOn(l3);
+
+        YoYo.with(Techniques.Landing)
+                .duration(1000)
+                .playOn(price);
+
+        YoYo.with(Techniques.Landing)
+                .duration(1000)
+                .playOn(cloth);
+
+        YoYo.with(Techniques.Landing)
+                .duration(1000)
+                .playOn(proceed);
+
+        YoYo.with(Techniques.Landing)
+                .duration(1000)
+                .playOn(tt);
+
+        YoYo.with(Techniques.Landing)
+                .duration(1000)
+                .playOn(quantity);
 
 
         shirt = v.findViewById(R.id.shirt);

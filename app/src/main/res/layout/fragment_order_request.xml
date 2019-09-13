@@ -26,6 +26,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:id="@+id/clothdetails"
+                android:visibility="gone"
                 android:layout_weight="6"
                 android:orientation="vertical">
 
@@ -153,6 +155,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_weight="2.5"
+                android:visibility="gone"
+                android:id="@+id/quantitydetails"
                 android:orientation="vertical">
 
 
@@ -282,6 +286,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:id="@+id/pricedetails"
+                android:visibility="gone"
                 android:layout_weight="1.5"
                 android:orientation="vertical">
 
@@ -345,13 +351,13 @@
                 <TextView
                     android:id="@+id/blanketprice"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:textStyle="bold"
+                    android:layout_height="34dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:text="Rs.200"
                     android:textColor="#000"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
 
                 <TextView
@@ -416,7 +422,6 @@
 
         </LinearLayout>
 
-
         <TextView
             android:id="@+id/tt"
             android:layout_width="wrap_content"
@@ -424,6 +429,7 @@
             android:layout_below="@+id/l2"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
+            android:visibility="gone"
             android:layout_marginTop="10dp"
             android:text="Add More"
             android:textColor="#000"
@@ -435,6 +441,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tt"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
             android:orientation="horizontal"
             android:weightSum="10">
 
@@ -567,6 +574,7 @@
             android:layout_below="@+id/l3"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
+            android:visibility="gone"
             android:layout_marginBottom="30dp"
             android:background="@drawable/buttonview"
             android:text="Proceed"

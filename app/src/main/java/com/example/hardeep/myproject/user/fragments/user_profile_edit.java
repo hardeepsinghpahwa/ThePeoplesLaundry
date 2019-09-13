@@ -4,16 +4,19 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.hardeep.myproject.Main;
 import com.example.hardeep.myproject.R;
 import com.example.hardeep.myproject.get_details;
@@ -47,6 +50,7 @@ public class user_profile_edit extends Fragment {
     RecyclerView recyclerView;
     FirebaseFirestore firebaseFirestore;
     Button signout;
+    RelativeLayout relativeLayout;
     user_profile_edit user_profile_edit;
 
     public user_profile_edit() {
@@ -73,12 +77,22 @@ public class user_profile_edit extends Fragment {
         user_email = v.findViewById(R.id.emailuser);
         signout=v.findViewById(R.id.signout);
         user_id = firebaseAuth.getCurrentUser().getUid();
+        relativeLayout=v.findViewById(R.id.editlayout);
         recyclerView = v.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         String data[]={"Edit Profile","My Orders","Edit Password"};
         int image[]={R.drawable.edit,R.drawable.order1,R.drawable.password};
         recyclerView.setAdapter(new MyAdapter(data,image,getContext()));
 
+        relativeLayout.setVisibility(View.VISIBLE);
+        signout.setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.BounceInUp)
+                .duration(1000)
+                .playOn(signout);
+
+        YoYo.with(Techniques.BounceInDown)
+                .duration(1000)
+                .playOn(relativeLayout);
 
         signout.setOnClickListener(new View.OnClickListener() {
             @Override

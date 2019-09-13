@@ -5,11 +5,10 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.hardeep.myproject.user.The_user_profile;
-import com.google.common.util.concurrent.ServiceManager;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Splash extends AppCompatActivity {
@@ -39,22 +38,26 @@ public class Splash extends AppCompatActivity {
                     {
                         startActivity(new Intent(Splash.this, The_user_profile.class));
                         finish();
+                        overridePendingTransition(R.anim.top2,R.anim.top1);
                     }else
                     {
                         Intent i = new Intent(Splash.this, Launcher.class);
                         startActivity(i);
+                        overridePendingTransition(R.anim.top2,R.anim.top1);
                     }
 
                 } else {
                     Intent i = new Intent(Splash.this, NoInternet.class);
                     startActivity(i);
+                    overridePendingTransition(R.anim.fromright,R.anim.toright );
+
                 }
 
 
                 // close this activity
                 finish();
             }
-        }, 3000);
+        }, 5000);
     }
     public boolean isNetworkAvailable() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);

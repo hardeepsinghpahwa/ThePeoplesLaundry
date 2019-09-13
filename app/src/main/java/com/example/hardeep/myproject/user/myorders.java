@@ -1,11 +1,12 @@
 package com.example.hardeep.myproject.user;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.ProgressBar;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.hardeep.myproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +25,7 @@ public class myorders extends AppCompatActivity {
     ArrayList<String> orders,costs,statuses;
     RecyclerView.Adapter adapter;
     String order_id,amount;
-    ProgressBar progressBar;
+    LottieAnimationView progressBar;
     DatabaseReference databaseReference,dataref;
 
     @Override

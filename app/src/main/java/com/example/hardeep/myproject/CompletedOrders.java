@@ -6,16 +6,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +31,7 @@ public class CompletedOrders extends Fragment {
     RecyclerView recyclerView;
     DatabaseReference dataref;
     TextView noorder;
+    LottieAnimationView lottieAnimationView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,6 +74,8 @@ public class CompletedOrders extends Fragment {
 
         noorder=v.findViewById(R.id.noorderscom);
         recyclerView = v.findViewById(R.id.completedordersrecyclerview);
+        lottieAnimationView=v.findViewById(R.id.completedlottie);
+        lottieAnimationView.setSpeed(1.2f);
         dataref = FirebaseDatabase.getInstance().getReference().child("2").child("Completed Orders");
 
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<details, Order_View_holder>
@@ -81,6 +85,7 @@ public class CompletedOrders extends Fragment {
             @Override
             public void onViewAttachedToWindow(@NonNull final Order_View_holder holder) {
                 super.onViewAttachedToWindow(holder);
+                lottieAnimationView.setVisibility(View.INVISIBLE);
                 holder.itemView.setVisibility(View.INVISIBLE);
 
                 if (holder.getPosition() > lastPosition) {

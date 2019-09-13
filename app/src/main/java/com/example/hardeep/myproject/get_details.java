@@ -2,13 +2,13 @@ package com.example.hardeep.myproject;
 
 
 public class get_details {
-    String name;
-    String password;
-    String username;
-    String email;
-    String image;
+    private String name;
+    private String password;
+    private String username;
+    private String email;
+    private String image;
 
-    public get_details(String name, String password, String username, String email, String image) {
+    get_details(String name, String password, String username, String email, String image) {
         this.name = name;
         this.password = password;
         this.username = username;

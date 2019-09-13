@@ -5,8 +5,8 @@ import android.animation.ObjectAnimator;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +14,7 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.hardeep.myproject.R;
 
 import java.util.ArrayList;
@@ -28,13 +29,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     ArrayList<String> costs;
     ArrayList<String> statuses;
     Context context;
-    ProgressBar progressBar;
+    LottieAnimationView progressBar;
     int lastPosition=-1;
 
     @Override
     public void onViewAttachedToWindow(@NonNull final ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
-        progressBar.setVisibility(View.GONE);
+       progressBar.setVisibility(View.GONE);
 
         holder.itemView.setVisibility(View.INVISIBLE);
 
@@ -62,7 +63,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
     }
 
-    public OrderAdapter(ArrayList<String> orderid, ArrayList<String >costs, ArrayList<String> statuses, Context context,ProgressBar progressBar) {
+    public OrderAdapter(ArrayList<String> orderid, ArrayList<String >costs, ArrayList<String> statuses, Context context, LottieAnimationView progressBar) {
         this.orderid=orderid;
         this.costs=costs;
         this.statuses=statuses;

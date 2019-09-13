@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:background="@drawable/bbck"
     tools:context=".CompletedOrders">
@@ -19,7 +20,18 @@
      android:id="@+id/noorderscom"
      />
 
- <android.support.v7.widget.RecyclerView
+ <com.airbnb.lottie.LottieAnimationView
+     android:layout_width="300dp"
+     android:layout_height="300dp"
+     android:layout_centerVertical="true"
+     android:layout_centerHorizontal="true"
+     app:lottie_rawRes="@raw/laundry"
+     app:lottie_autoPlay="true"
+     app:lottie_loop="true"
+     android:id="@+id/completedlottie"
+  />
+
+ <androidx.recyclerview.widget.RecyclerView
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:id="@+id/completedordersrecyclerview"
@@ -27,7 +39,7 @@
      >
 
 
- </android.support.v7.widget.RecyclerView>
+ </androidx.recyclerview.widget.RecyclerView>
 
 
 

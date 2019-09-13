@@ -1,14 +1,15 @@
 package com.example.hardeep.myproject.user.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.hardeep.myproject.R;
 import com.example.hardeep.myproject.user.OrderAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +30,7 @@ public class Active_orders extends Fragment {
     ArrayList<String> orders,costs,statuses;
     RecyclerView.Adapter adapter;
     String order_id,amount;
-    ProgressBar progressBar;
+    LottieAnimationView progressBar;
     DatabaseReference databaseReference,dataref;
 
     @Override
@@ -44,6 +45,7 @@ public class Active_orders extends Fragment {
         orders.clear();
         costs.clear();
         statuses.clear();
+        progressBar.setSpeed(1.2f);
 
 
         dataref.addValueEventListener(new ValueEventListener() {
