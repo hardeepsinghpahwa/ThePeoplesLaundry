@@ -91,6 +91,7 @@
         android:layout_alignParentBottom="true"
         android:text="Sign Out"
         android:visibility="gone"
+        android:foreground="?attr/selectableItemBackground"
         android:textColor="@android:color/white"
         android:textSize="20dp"
         android:textStyle="bold" />

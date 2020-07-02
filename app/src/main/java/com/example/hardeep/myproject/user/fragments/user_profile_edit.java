@@ -58,19 +58,14 @@ public class user_profile_edit extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("1");
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseFirestore=FirebaseFirestore.getInstance();
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_user_profile_edit, container, false);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("1").child("User details");
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore=FirebaseFirestore.getInstance();
 
         circleImageView = v.findViewById(R.id.circleImage);
         user_name = v.findViewById(R.id.nameuser);
@@ -151,16 +146,14 @@ public class user_profile_edit extends Fragment {
 
     private void show(DataSnapshot dataSnapshot) {
 
-        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
             get_details d = new get_details();
-            d.setName(dataSnapshot1.child(user_id).getValue(get_details.class).getName());
-            d.setEmail(dataSnapshot1.child(user_id).getValue(get_details.class).getEmail());
-            d.setImage(dataSnapshot1.child(user_id).getValue(get_details.class).getImage());
+            d.setName(dataSnapshot.child(user_id).getValue(get_details.class).getName());
+            d.setEmail(dataSnapshot.child(user_id).getValue(get_details.class).getEmail());
+            d.setImage(dataSnapshot.child(user_id).getValue(get_details.class).getImage());
             user_name.setText(d.getName());
             user_email.setText(d.getEmail());
             String uri = d.getImage();
             Picasso.get().load(uri).fit().centerCrop().into(circleImageView);
-        }
 
 
     }

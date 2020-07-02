@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -50,7 +51,7 @@ public class The_user_profile extends AppCompatActivity
     String instantid;
     NavigationView navigationView;
     boolean exit = false;
-
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +71,9 @@ public class The_user_profile extends AppCompatActivity
 
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        progressBar=findViewById(R.id.progressbar);
+        navigationView.getMenu().findItem(R.id.activeorder).setChecked(true);
+
         View header=navigationView.getHeaderView(0);
         name=header.findViewById(R.id.name);
         email=header.findViewById(R.id.email);
@@ -103,6 +107,7 @@ public class The_user_profile extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     private void display(DataSnapshot dataSnapshot) {
@@ -154,34 +159,48 @@ public class The_user_profile extends AppCompatActivity
         if (id == R.id.activeorder) {
             fragment=new Active_orders();
             getSupportActionBar().setTitle("Active Orders");
+
         } else if (id == R.id.previousorders) {
             fragment=new Previous_orders();
             getSupportActionBar().setTitle("Previous Orders");
+            navigationView.getMenu().findItem(R.id.activeorder).setChecked(false);
+
 
         } else if (id == R.id.settings) {
             fragment=new Settings();
             getSupportActionBar().setTitle("Settings");
+            navigationView.getMenu().findItem(R.id.activeorder).setChecked(false);
+
 
         } else if (id == R.id.share) {
             fragment=new Share_the_app();
             getSupportActionBar().setTitle("Share");
+            navigationView.getMenu().findItem(R.id.activeorder).setChecked(false);
+
 
         } else if (id == R.id.pricelist) {
             fragment= new price_list();
             getSupportActionBar().setTitle("Price List");
+            navigationView.getMenu().findItem(R.id.activeorder).setChecked(false);
+
         }
         else if(id==R.id.profile){
             fragment=new user_profile_edit();
             getSupportActionBar().setTitle("Profile");
+            navigationView.getMenu().findItem(R.id.activeorder).setChecked(false);
+
         }
         else if(id==R.id.contactus){
             fragment=new Contact_us();
             getSupportActionBar().setTitle("Contact Us");
+            navigationView.getMenu().findItem(R.id.activeorder).setChecked(false);
+
         }
         else if(id==R.id.requestorder)
         {
             fragment=new OrderRequest();
             getSupportActionBar().setTitle("Request Order");
+            navigationView.getMenu().findItem(R.id.activeorder).setChecked(false);
         }
 
         FragmentTransaction f= getSupportFragmentManager().beginTransaction();

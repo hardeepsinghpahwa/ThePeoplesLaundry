@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Studio Projects-ThePeoplesLaundry.iml" filepath="$PROJECT_DIR$/Studio Projects-ThePeoplesLaundry.iml" group="ThePeoplesLaundry" />
       <module fileurl="file://$PROJECT_DIR$/ThePeoplesLaundry.iml" filepath="$PROJECT_DIR$/ThePeoplesLaundry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/ThePeoplesLaundry-app.iml" filepath="$PROJECT_DIR$/app/ThePeoplesLaundry-app.iml" group="ThePeoplesLaundry/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

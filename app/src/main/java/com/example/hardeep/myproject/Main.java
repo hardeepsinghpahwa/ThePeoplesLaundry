@@ -48,6 +48,8 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
         email = findViewById(R.id.mail);
         password = findViewById(R.id.pass);
         button = findViewById(R.id.login);

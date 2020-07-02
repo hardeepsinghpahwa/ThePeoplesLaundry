@@ -23,6 +23,7 @@
         android:layout_centerVertical="true"
         android:text="Retry"
         android:textSize="20sp"
+        android:foreground="?attr/selectableItemBackground"
         android:textStyle="bold"
         android:id="@+id/retrybutton"
         android:background="@drawable/buttonview"

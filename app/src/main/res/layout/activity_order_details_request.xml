@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backk"
+    android:background="@drawable/bbck"
     tools:context=".Order_details_request">
 
     <RelativeLayout
@@ -163,6 +163,7 @@
                         android:layout_gravity="center"
                         android:background="@drawable/buttonview"
                         android:text="Edit"
+                        android:foreground="?attr/selectableItemBackground"
                         android:textStyle="bold"
                         android:textColor="#FFFFFF"
                         android:textSize="10sp" />
@@ -224,6 +225,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
                         android:layout_gravity="center"
+                        android:foreground="?attr/selectableItemBackground"
                         android:background="@drawable/buttonview"
                         android:text="Edit"
                         android:textStyle="bold"
@@ -244,6 +246,7 @@
             android:layout_below="@+id/l6"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
+            android:foreground="?attr/selectableItemBackground"
             android:layout_marginBottom="20dp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/buttonview"

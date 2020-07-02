@@ -66,9 +66,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/t2"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:paddingLeft="10dp"
         android:maxLines="2"
         android:textColor="@android:color/white"
         android:textSize="20sp"
@@ -83,6 +82,7 @@
         android:layout_marginTop="70dp"
         android:background="@drawable/buttonview"
         android:text="Update Details"
+        android:foreground="?attr/selectableItemBackground"
         android:textColor="@android:color/white"
         android:textSize="18dp" />
 
@@ -95,6 +95,7 @@
         android:layout_marginTop="13dp"
         android:clickable="true"
         android:padding="2dp"
+        android:foreground="?attr/selectableItemBackground"
         android:background="#FFFFFF"
         android:onClick="Choose_the_image"
         android:scaleType="centerCrop"

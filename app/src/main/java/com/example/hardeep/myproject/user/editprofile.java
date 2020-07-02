@@ -83,6 +83,7 @@ public class editprofile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editprofile);
 
+        getSupportActionBar().setTitle("Edit Your Profile");
         name = findViewById(R.id.name1);
         email = findViewById(R.id.email1);
         username = findViewById(R.id.username1);
@@ -93,12 +94,12 @@ public class editprofile extends AppCompatActivity {
         userid = firebaseAuth.getCurrentUser().getUid();
         image = findViewById(R.id.image1);
 
-        dataref = FirebaseDatabase.getInstance().getReference().child("1").child("User details").child(userid);
+        dataref = FirebaseDatabase.getInstance().getReference().child("1").child("User details");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        dataref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 display(dataSnapshot);
@@ -114,10 +115,11 @@ public class editprofile extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                final ProgressDialog pd = ProgressDialog.show(editprofile.this, "Please Wait", "Updating Details");
+                pd.show();
+
                 if (resultu != null) {
-                    final ProgressDialog pd = ProgressDialog.show(editprofile.this, "Please Wait", "Updating Details");
-                    pd.show();
-                    final String random = UUID.randomUUID().toString();
+                   final String random = UUID.randomUUID().toString();
                     storageref = storageref.child("Profile Pictures/" + random + ".jpg");
                     UploadTask uploadTask = storageref.putFile(resultu);
                     Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
@@ -147,7 +149,7 @@ public class editprofile extends AppCompatActivity {
                                             if (rr != null) {
                                                 dataSnapshot.getRef().child("image").setValue(rr.toString());
                                                 pd.dismiss();
-                                                Toast.makeText(editprofile.this, "Profile Updated", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(editprofile.this,"Details Updated",Toast.LENGTH_SHORT).show();
                                             }
                                         }
 
@@ -177,11 +179,12 @@ public class editprofile extends AppCompatActivity {
                             t.schedule(new TimerTask() {
                                 public void run() {
                                     finish();
+                                    Toast.makeText(editprofile.this,"Details Updated",Toast.LENGTH_SHORT).show();
                                     progressDialog1.dismiss();
                                     t.cancel();
 
                                 }
-                            }, 3000);
+                            }, 2000);
 
                             dataSnapshot.getRef().child("name").setValue(name.getText().toString());
                             dataSnapshot.getRef().child("username").setValue(username.getText().toString());
@@ -202,18 +205,17 @@ public class editprofile extends AppCompatActivity {
 
     private void display(DataSnapshot dataSnapshot) {
 
-        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
             get_details d = new get_details();
-            d.setName(dataSnapshot1.child(userid).getValue(get_details.class).getName());
-            d.setEmail(dataSnapshot1.child(userid).getValue(get_details.class).getEmail());
-            d.setImage(dataSnapshot1.child(userid).getValue(get_details.class).getImage());
-            d.setUsername(dataSnapshot1.child(userid).getValue(get_details.class).getUsername());
+            d.setName(dataSnapshot.child(userid).getValue(get_details.class).getName());
+            d.setEmail(dataSnapshot.child(userid).getValue(get_details.class).getEmail());
+            d.setImage(dataSnapshot.child(userid).getValue(get_details.class).getImage());
+            d.setUsername(dataSnapshot.child(userid).getValue(get_details.class).getUsername());
             uri = d.getImage();
             name.setText(d.getName());
             email.setText(d.getEmail());
             username.setText(d.getUsername());
             Picasso.get().load(uri).resize(100, 100).centerCrop().into(image);
-        }
+
     }
 
     @Override

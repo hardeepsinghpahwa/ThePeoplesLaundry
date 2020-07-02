@@ -303,12 +303,23 @@
                     android:textSize="20dp" />
 
                 <TextView
+                    android:id="@+id/shirtprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="35dp"
+                    android:text="Rs.5"
+                    android:textColor="#000"
+                    android:textSize="15dp" />
+
+                <TextView
                     android:id="@+id/jeansprice"
                     android:layout_width="wrap_content"
                     android:textStyle="bold"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
                     android:text="Rs.7"
                     android:textColor="#000"
                     android:textSize="15dp" />
@@ -407,16 +418,7 @@
                     android:textColor="#000"
                     android:textSize="15dp" />
 
-                <TextView
-                    android:id="@+id/shirtprice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Rs.5"
-                    android:textColor="#000"
-                    android:textSize="15dp" />
+
 
             </LinearLayout>
 
@@ -578,6 +580,7 @@
             android:layout_marginBottom="30dp"
             android:background="@drawable/buttonview"
             android:text="Proceed"
+            android:foreground="?attr/selectableItemBackground"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
 

@@ -251,7 +251,7 @@ public class newaccount extends AppCompatActivity {
                                     });
                                 } else {
 
-                                    image = Uri.parse("http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png");
+                                    image = Uri.parse("https://firebasestorage.googleapis.com/v0/b/myproject-f11fb.appspot.com/o/user.png?alt=media&token=24ae7edb-039e-4078-8d69-dceb090d4473");
                                     button.setClickable(false);
                                     final AlertDialog alertDialog = new SpotsDialog.Builder()
                                             .setContext(newaccount.this)

@@ -90,18 +90,20 @@
             android:text="@string/log_in"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
+            android:foreground="?attr/selectableItemBackground"
             android:textStyle="bold" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/create_a_new_account"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/login"
         android:id="@+id/newacc"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:foreground="?attr/selectableItemBackground"
         android:clickable="true"
         android:onClick="Clickme"
         android:focusable="true" />
@@ -118,6 +120,7 @@
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
             android:onClick="Clickme"
             android:focusable="true" />
 

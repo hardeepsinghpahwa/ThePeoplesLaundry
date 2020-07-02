@@ -16,8 +16,9 @@
         android:roundIcon="@drawable/logo1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".Splash"
-            android:theme="@style/NoBar">
+            android:theme="@style/NoBar2">
             <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
@@ -28,22 +29,26 @@
         <activity android:name=".ForgotPassword" />
         <activity android:name=".ViewCompleted" />
         <activity android:name=".ViewRejected" />
-        <activity android:name=".Order_details_request" />
-        <activity android:name=".EmailVerification" />
+        <activity android:name=".Order_details_request"
+            android:windowSoftInputMode="stateVisible|adjustPan"
+            />
+        <activity android:name=".EmailVerification"
+            android:theme="@style/NoBar2"/>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".Main"
-            android:theme="@style/NoBar" />
+            android:theme="@style/NoBar2" />
         <activity
             android:name=".newaccount"
-            android:theme="@style/NoBar"
+            android:theme="@style/NoBar2"
             android:windowSoftInputMode="stateHidden|adjustResize|adjustPan"
             />
         <activity
             android:name=".user.The_user_profile"
             android:label="@string/title_activity_the_user_profile"
+            android:windowSoftInputMode="stateVisible|adjustPan"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".user.editprofile" />
         <activity android:name=".user.myorders" />
@@ -51,7 +56,7 @@
         <activity android:name=".user.Order_click_details" />
         <activity
             android:name=".Launcher"
-            android:theme="@style/NoBar">
+            android:theme="@style/NoBar2">
 
         </activity>
 

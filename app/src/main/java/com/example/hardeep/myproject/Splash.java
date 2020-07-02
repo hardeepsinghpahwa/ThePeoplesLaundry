@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.hardeep.myproject.user.The_user_profile;
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,6 +18,8 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
 
         new Handler().postDelayed(new Runnable() {
@@ -57,7 +60,7 @@ public class Splash extends AppCompatActivity {
                 // close this activity
                 finish();
             }
-        }, 5000);
+        }, 1);
     }
     public boolean isNetworkAvailable() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
