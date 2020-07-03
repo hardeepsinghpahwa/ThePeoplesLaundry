@@ -5,12 +5,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="open">Open</string>
     <string name="default_notification_channel_id">Ch-01</string>
-    <string name="close">Close</string>
     <string name="set_password">Set Password</string>
     <string name="re_enter_password">Re-enter Password</string>
     <string name="create_account">Create Account</string>
@@ -18,7 +13,6 @@
     <string name="enter_full_name">Enter full name</string>
     <string name="select_profile_picture">Select profile picture</string>
     <string name="send_verification_link">Send Verification Link</string>
-    <string name="no_orders_yet">No Orders Yet</string>
     <string name="create_a_new_account">Create a new account</string>
     <string name="forgot_password">Forgot Account Password?</string>
     <string name="log_in">Log In</string>

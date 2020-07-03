@@ -7,6 +7,28 @@
     android:layout_height="match_parent"
     tools:context="com.example.hardeep.myproject.user.myorders">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Active Orders"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:id="@+id/noordersac"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/noorders"
+        android:visibility="gone"
+        android:id="@+id/imgac"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/noordersac"/>
+
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="300dp"
         android:layout_height="300dp"

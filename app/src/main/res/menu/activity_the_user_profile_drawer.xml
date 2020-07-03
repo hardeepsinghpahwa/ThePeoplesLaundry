@@ -16,20 +16,20 @@
 
         <item
             android:id="@+id/requestorder"
-            android:icon="@drawable/add"
+            android:icon="@drawable/addorder"
             android:title="Request an order" />
         <item
             android:id="@+id/activeorder"
-            android:icon="@drawable/activeorder"
+            android:icon="@drawable/activeorders"
             android:title="Active orders" />
         <item
             android:id="@+id/previousorders"
-            android:icon="@drawable/previous"
+            android:icon="@drawable/previousorders"
             android:title="Previous Orders" />
 
         <item
             android:id="@+id/pricelist"
-            android:icon="@drawable/pricelist"
+            android:icon="@drawable/money"
             android:title="Price List" />
     </group>
         </menu>

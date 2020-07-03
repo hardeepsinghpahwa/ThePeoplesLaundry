@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.hardeep.myproject.R;
@@ -27,6 +31,8 @@ public class myorders extends AppCompatActivity {
     String order_id,amount;
     LottieAnimationView progressBar;
     DatabaseReference databaseReference,dataref;
+    TextView textView;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,8 @@ public class myorders extends AppCompatActivity {
         userid=firebaseAuth.getCurrentUser().getUid();
         databaseReference= FirebaseDatabase.getInstance().getReference().child("1");
         dataref=FirebaseDatabase.getInstance().getReference().child("2").child("Accepted Orders");
+        imageView=findViewById(R.id.imgac);
+        textView=findViewById(R.id.noordersac);
 
         orders=new ArrayList<>();
         costs=new ArrayList<>();
@@ -49,6 +57,8 @@ public class myorders extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(myorders.this));
         adapter=new OrderAdapter(orders,costs,statuses,myorders.this,progressBar);
         recyclerView.setAdapter(adapter);
+
+
 
     }
 
@@ -78,6 +88,12 @@ public class myorders extends AppCompatActivity {
                         statuses.add(d.child("status").getValue(String.class));
                         adapter.notifyDataSetChanged();
                     }
+                }
+                if(orders.size()==0)
+                {
+                    progressBar.setVisibility(View.GONE);
+                    imageView.setVisibility(View.VISIBLE);
+                    textView.setVisibility(View.VISIBLE);
                 }
             }
 

@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -32,6 +33,7 @@ public class CompletedOrders extends Fragment {
     DatabaseReference dataref;
     TextView noorder;
     LottieAnimationView lottieAnimationView;
+    ImageView no;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -76,6 +78,7 @@ public class CompletedOrders extends Fragment {
         recyclerView = v.findViewById(R.id.completedordersrecyclerview);
         lottieAnimationView=v.findViewById(R.id.completedlottie);
         lottieAnimationView.setSpeed(1.2f);
+        no=v.findViewById(R.id.imgcom);
         dataref = FirebaseDatabase.getInstance().getReference().child("2").child("Completed Orders");
 
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<details, Order_View_holder>
@@ -114,10 +117,6 @@ public class CompletedOrders extends Fragment {
             @Override
             protected void populateViewHolder(final Order_View_holder viewHolder, final details model, final int position) {
 
-                if(firebaseRecyclerAdapter.getItemCount()<1)
-                {
-                    noorder.setVisibility(View.VISIBLE);
-                }
                 String uid = model.getUserid();
                 viewHolder.setOrderid("#"+firebaseRecyclerAdapter.getRef(position).getKey());
 
@@ -144,12 +143,30 @@ public class CompletedOrders extends Fragment {
 
                     }
                 });
+
             }
         };
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(firebaseRecyclerAdapter);
 
+        dataref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getChildrenCount()==0)
+                {
+                    no.setVisibility(View.VISIBLE);
+                    noorder.setVisibility(View.VISIBLE);
+                    lottieAnimationView.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         return v;
     }
 

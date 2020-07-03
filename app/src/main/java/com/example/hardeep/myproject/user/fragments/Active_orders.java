@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.hardeep.myproject.R;
@@ -32,6 +34,8 @@ public class Active_orders extends Fragment {
     String order_id,amount;
     LottieAnimationView progressBar;
     DatabaseReference databaseReference,dataref;
+    ImageView img;
+    TextView textView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,8 @@ public class Active_orders extends Fragment {
                 if(orders.size()==0)
                 {
                     progressBar.setVisibility(View.GONE);
+                    img.setVisibility(View.VISIBLE);
+                    textView.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -100,6 +106,8 @@ public class Active_orders extends Fragment {
         View v= inflater.inflate(R.layout.fragment_active_orders, container, false);
         recyclerView=v.findViewById(R.id.orderrecyclerview);
         progressBar=v.findViewById(R.id.progressbaractive);
+        img=v.findViewById(R.id.img);
+        textView=v.findViewById(R.id.imgtext);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter=new OrderAdapter(orders,costs,statuses,getActivity(),progressBar);
         recyclerView.setAdapter(adapter);

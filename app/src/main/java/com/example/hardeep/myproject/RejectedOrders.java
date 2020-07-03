@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -41,6 +42,7 @@ public class RejectedOrders extends Fragment {
     RecyclerView recyclerView;
     LottieAnimationView lottieAnimationView;
     DatabaseReference dataref;
+    ImageView no;
 
     public RejectedOrders() {
         // Required empty public constructor
@@ -74,6 +76,7 @@ public class RejectedOrders extends Fragment {
         recyclerView=v.findViewById(R.id.rejectedordersrecyclerview);
         lottieAnimationView=v.findViewById(R.id.rejectedlottie);
         lottieAnimationView.setSpeed(1.2f);
+        no=v.findViewById(R.id.imgrej);
         dataref= FirebaseDatabase.getInstance().getReference().child("2").child("Rejected Orders");
 
         firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<details, Order_View_holder>
@@ -114,10 +117,6 @@ public class RejectedOrders extends Fragment {
             @Override
             protected void populateViewHolder(final Order_View_holder viewHolder, final details model, final int position) {
 
-                if(firebaseRecyclerAdapter.getItemCount()<1)
-                {
-                    noorders.setVisibility(View.VISIBLE);
-                }
                 String uid=model.getUserid();
                 viewHolder.setOrderid("#"+firebaseRecyclerAdapter.getRef(position).getKey());
 
@@ -154,6 +153,22 @@ public class RejectedOrders extends Fragment {
         recyclerView.setAdapter(firebaseRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        dataref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getChildrenCount()==0)
+                {
+                    no.setVisibility(View.VISIBLE);
+                    noorders.setVisibility(View.VISIBLE);
+                    lottieAnimationView.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         return v;
     }
